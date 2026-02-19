@@ -1,7 +1,7 @@
 // Import external libraries (crates)
 use anyhow::Result;     // Easy error handling
 use chrono::Local;      // Current date/time
-use std::path::Pathbuf; // For handling file paths
+use std::path::PathBuf; // For handling file paths
 
 // Import our own modules (other files we'll create)
 mod config;             // Settings like API tokens
