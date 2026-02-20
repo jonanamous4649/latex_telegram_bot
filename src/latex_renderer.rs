@@ -45,5 +45,29 @@ impl LatexRenderer {
         output_name: &str,
     ) -> Result<PathBuf> {  // Returns path to generated PDF
 
+        // ensure template dir exists
+        // Path::new() creates a path from string
+        let template_dir = Path::new("templates");
+        if !template_dir.exists() {
+            println!(" Creating default tempalte...");
+            self.create_default_template().await?;
+        }
+
+        // reload tera to puck up newly created templates
+        // fresh tera instance to load templates
+        let mut tera = Tera::new("templates/**/*")
+            .context("Failed to load templates")?;
+
+        // disable auto-escaping for .tex files (issue with backslahes)
+        tera.autoescape_on(vec!["html", "htm", "xml"]);
+
+        // render template with data
+        println!(" Filling template with data...");
+        let latex_content = tera.render(template_name, &context)
+            .with_context(|| {
+                format!("Failed to render template: {}", template_name)
+            })?;
+
+        Ok(pdf_path)
     }
 }
