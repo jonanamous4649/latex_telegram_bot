@@ -19,7 +19,7 @@ pub struct Config {
     pub output_dir: PathBuf,
 
     // Command to run LaTeX (usually "pdflatex")
-    pub latex_cmd: String,
+    // pub latex_cmd: String, <- removed for simplicity (is hardcoded elswhere)
 }
 
 impl Config {
@@ -45,15 +45,14 @@ impl Config {
             .unwrap_or_else(|_| PathBuf::from("output"));
 
         // Read LaTeX command
-        let latex_cmd = env::var("LATEX_CMD")
-            .unwrap_or_else(|_| "pdflatex".to_string());
+        // let latex_cmd = env::var("LATEX_CMD")
+        //     .unwrap_or_else(|_| "pdflatex".to_string()); <- removed for simplicity (hardcoded elshwere)
         
         // Constructor
         Ok(Config {
             telegram_token,
             chat_id,
             output_dir,
-            latex_cmd,
         })
     }
 }
