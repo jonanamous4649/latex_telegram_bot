@@ -5,7 +5,6 @@ use tokio::fs as tokio_fs;
 use tokio::process::Command as TokioCommand;
 
 pub struct LatexRenderer {
-    tera: Tera,
     output_dir: PathBuf,
 }
 
@@ -19,18 +18,7 @@ impl LatexRenderer {
         // creates new directory at &Path
         std::fs::create_dir_all(output_dir)?;
 
-        // inialize tera template engine
-        // Tera::new() takes a glob pattern for template files
-        // 'templates/**/*/' means: templates folder, all subfolders, all files
-        let tera = match Tera::new("templates/**/*") {
-            Ok(t) => t,
-            Err(_) => {
-                Tera::default()
-            }
-        };
-
         Ok(LatexRenderer {
-            tera,
             output_dir: output_dir.to_path_buf(), // convert &Path to owned
         })
     }
@@ -41,14 +29,6 @@ impl LatexRenderer {
         context: TeraContext,
         output_name: &str,
     ) -> Result<PathBuf> {  // Returns path to generated PDF
-
-        // ensure template dir exists
-        // Path::new() creates a path from string
-        let template_dir = Path::new("templates");
-        if !template_dir.exists() {
-            println!(" Creating default tempalte...");
-            self.create_default_template().await?;
-        }
 
         // reload tera to puck up newly created templates
         // fresh tera instance to load templates
@@ -118,103 +98,6 @@ impl LatexRenderer {
 
             anyhow::bail!("LaTeX compliation failed. See output above.");
         }
-
-        Ok(())
-    }
-
-    // create default template if not exists
-    async fn create_default_template(&self) -> Result<()> {
-
-        // create directory for template
-        tokio_fs::create_dir_all("templates").await
-            .context("failed to create tempaltes directory")?;
-
-        // template content as raw string
-        // r# syntax: r = raw with # delimiters
-        let template_content = r#"
-\documentclass[11pt]{article}
-\usepackage[a4paper, top=70pt, bottom=30pt, left=0.5in, right=0.5in]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, booktabs}
-\usepackage[scaled]{helvet}
-\usepackage{xcolor}
-\usepackage{eso-pic}
-\usepackage{fancyhdr}
-
-% Header box ↓
-\definecolor{headerblue}{RGB}{0, 51, 102}
-
-\AddToShipoutPictureBG{%
-  \AtPageUpperLeft{%
-    \raisebox{-60pt}{\color{headerblue}\rule{\paperwidth}{60pt}}%
-  }%
-}
-
-\setlength{\headheight}{60pt}
-\addtolength{\topmargin}{-14.32pt}
-
-\AddToShipoutPictureFG{%
-  \AtPageUpperLeft{%
-    \raisebox{-38pt}{\makebox[\paperwidth][c]{\parbox[c]{\paperwidth}{\centering\textcolor{white}{%
-        \Large\textbf{{ report_title }}\\[2pt]%
-        \small { generation_date }}}}}%
-  }% 
-}
-
-\pagestyle{fancy}
-\fancyhf{}
-\setlength{\headheight}{45.68002pt}
-\addtolength{\topmargin}{-4.08003pt}
-\renewcommand{\headrulewidth}{0pt}
-% Header box ↑
-
-% Footer box ↓
-\AddToShipoutPictureBG{%
-  \AtPageLowerLeft{%
-    \raisebox{0pt}{\color{headerblue}\rule{\paperwidth}{20pt}}%
-  }%
-}
-
-\AddToShipoutPictureFG{%
-  \AtPageLowerLeft{%
-    \raisebox{6pt}{\makebox[\paperwidth][c]{\textcolor{white}{My Footer}}}%
-  }%
-}
-% Footer box ↑
-
-\begin{document}
-
-\section{Data Summary}
-\begin{itemize}
-    {% for metric in metrics %}
-    \item \textbf{ {{ metric.name }} }: {{ metric.value }} {{ metric.unit }}
-    {% endfor %}
-\end{itemize}
-
-\section{Analysis}
-{{ analysis_text }}
-
-{% if include_table %}
-\section{Data Table}
-\begin{center}
-\begin{tabular}{ {{ table_columns | join(" ") }} }
-\toprule
-{% for row in table_data %}
-    {{ row | join(" & ") }} \\
-{% endfor %}
-\bottomrule
-\end{tabular}
-\end{center}
-{% endif %}
-
-\end{document}
-"#;
-
-        // write template file
-        tokio_fs::write("templates/template.tex", template_content).await
-            .context("Failed to write default demplate")?;
-
-        println!(" Default template created at templates/template.tex");
 
         Ok(())
     }

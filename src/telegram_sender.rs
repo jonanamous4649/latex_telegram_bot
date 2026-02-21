@@ -107,21 +107,6 @@ impl TelegramSender {
             );
         }
 
-        // parse JSON to check for Telegram-level errors
-        // serde_json::from_str parses JSON string into Rust type
-        // 'enum' value can represent any JSON
-        let json: serde_json::Value = serde_json::from_str(&body)
-            .context("Invalid JSON response from Telegram")?;
-
-        // json.get("ok") returns Option<&Value>
-        // and_then(|v| v.as_bool()) tries to get it as bool
-        // unwrap_or(false) sets default to false if the try didn't work
-        let ok = json.get("ok")
-            .and_then(|v| v.as_bool())
-            .unwrap_or(false);
-
-
-
         Ok(()) 
     }
 }
