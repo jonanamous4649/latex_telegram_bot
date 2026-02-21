@@ -1,3 +1,51 @@
-/target
+# ============================================
+# RUST / CARGO
+# ============================================
+
+# Compiled files and build artifacts
+/target/
+
+# Backup files created by some editors
 **/*.rs.bk
-Cargo.lock
+
+# ============================================
+# ENVIRONMENT VARIABLES / SECRETS
+# ============================================
+
+# Environment configuration files - NEVER COMMIT THESE
+.env
+.env.local
+.env.*.local
+
+# ============================================
+# IDE / EDITOR FILES
+# ============================================
+
+# VS Code
+.vscode/
+
+# IntelliJ / RustRover / CLion
+.idea/
+*.iml
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+
+# ============================================
+# OPERATING SYSTEM FILES
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory

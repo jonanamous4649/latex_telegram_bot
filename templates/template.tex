@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, booktabs, geometry, xcolor}
+\geometry{margin=1in}
+
+\begin{document}
+
+\begin{center}
+    \Large\textbf{ {{ report_title }} }\\
+    \small Generated on {{ generation_date }}
+\end{center}
+
+\section{Data Summary}
+\begin{itemize}
+    {% for metric in metrics %}
+    \item \textbf{ {{ metric.name }} }: {{ metric.value }} {{ metric.unit }}
+    {% endfor %}
+\end{itemize}
+
+\section{Analysis}
+{{ analysis_text }}
+
+\section{Mathematical Model}
+\begin{equation}
+    {{ equation }}
+\end{equation}
+
+{% if include_table %}
+\section{Data Table}
+\begin{center}
+\begin{tabular}{ {{ table_columns | join(sep="") }} }
+\toprule
+{% for row in table_data %}
+    {{ row | join(sep=" & ") }} \\
+{% endfor %}
+\bottomrule
+\end{tabular}
+\end{center}
+{% endif %}
+
+\end{document}

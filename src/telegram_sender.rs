@@ -11,7 +11,7 @@ pub struct TelegramSender {
 
     // bot token from @BotFather
     // String (owned) because we store it for lifetime of struct
-    token: String,
+    // token: String,
 
     // Telegram user ID
     // i64 because Telegram chat IDs can be large
@@ -34,7 +34,7 @@ impl TelegramSender {
 
         TelegramSender {
             client: Client::new(),      // create new HTTP client with default settings
-            token: token.to_string(),   // convert &str to owned String
+            // token: token.to_string(),   // convert &str to owned String
             chat_id,
             base_url,
         }
