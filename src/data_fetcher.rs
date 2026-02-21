@@ -23,7 +23,6 @@ pub struct ReportData {
     // 'Vec<>' is a vectro (mutable array) of Metric structs
     pub metrics: Vec<Metric>,
     pub analysis_text: String,
-    pub equation: String,
     pub include_table: bool,
     pub table_columns: Vec<String>,
     pub table_data: Vec<Vec<String>>,
@@ -98,7 +97,6 @@ pub async fn fetch_data() -> Result<ReportData> {
         metrics: metrics,
         analysis_text: "Q4 shows strong performance with 15% growth \
                         driven by new product liens and holiday sales.".to_string(),
-        equation: r#"y=\alpha x^2+\beta x+\gamma"#.to_string(),
         include_table: true,
         table_columns: vec![
             "|c".to_string(),

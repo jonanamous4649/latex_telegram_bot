@@ -131,18 +131,58 @@ impl LatexRenderer {
 
         // template content as raw string
         // r# syntax: r = raw with # delimiters
-        let template_content = r#"\documentclass[11pt]{article}
-
+        let template_content = r#"
+\documentclass[11pt]{article}
+\usepackage[a4paper, top=70pt, bottom=30pt, left=0.5in, right=0.5in]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath, booktabs, geometry, xcolor}
-\geometry{margin=1in}
+\usepackage{amsmath, booktabs}
+\usepackage[scaled]{helvet}
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+
+% Header box ↓
+\definecolor{headerblue}{RGB}{0, 51, 102}
+
+\AddToShipoutPictureBG{%
+  \AtPageUpperLeft{%
+    \raisebox{-60pt}{\color{headerblue}\rule{\paperwidth}{60pt}}%
+  }%
+}
+
+\setlength{\headheight}{60pt}
+\addtolength{\topmargin}{-14.32pt}
+
+\AddToShipoutPictureFG{%
+  \AtPageUpperLeft{%
+    \raisebox{-38pt}{\makebox[\paperwidth][c]{\parbox[c]{\paperwidth}{\centering\textcolor{white}{%
+        \Large\textbf{{ report_title }}\\[2pt]%
+        \small { generation_date }}}}}%
+  }% 
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{45.68002pt}
+\addtolength{\topmargin}{-4.08003pt}
+\renewcommand{\headrulewidth}{0pt}
+% Header box ↑
+
+% Footer box ↓
+\AddToShipoutPictureBG{%
+  \AtPageLowerLeft{%
+    \raisebox{0pt}{\color{headerblue}\rule{\paperwidth}{20pt}}%
+  }%
+}
+
+\AddToShipoutPictureFG{%
+  \AtPageLowerLeft{%
+    \raisebox{6pt}{\makebox[\paperwidth][c]{\textcolor{white}{My Footer}}}%
+  }%
+}
+% Footer box ↑
 
 \begin{document}
-
-\begin{center}
-    \Large\textbf{ {{ report_title }} }\\
-    \small Generated on {{ generation_date }}
-\end{center}
 
 \section{Data Summary}
 \begin{itemize}
@@ -153,11 +193,6 @@ impl LatexRenderer {
 
 \section{Analysis}
 {{ analysis_text }}
-
-\section{Mathematical Model}
-\begin{equation}
-    {{ equation }}
-\end{equation}
 
 {% if include_table %}
 \section{Data Table}
