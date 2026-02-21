@@ -41,7 +41,7 @@ pub async fn fetch_data() -> Result<ReportData> {
     let metrics = vec![
         
         Metric {
-            name: "Total_revenue".to_string(),
+            name: "Total Revenue".to_string(),
             value: 125000.50,
             unit: "USD".to_string(),
         },

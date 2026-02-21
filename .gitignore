@@ -2,6 +2,9 @@
 # RUST / CARGO
 # ============================================
 
+# pdflatex output
+/output/
+
 # Compiled files and build artifacts
 /target/
 
