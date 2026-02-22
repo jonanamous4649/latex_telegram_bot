@@ -59,7 +59,7 @@ fn main() {
                 let tag_ids = vec!["100149", "101178", "100351", "450", "745", "100350", "82", "101674", "102779", "100639", "864", "101232", "102123"];
                 let now_str = Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string();
                 let now = Utc::now();                                   // current time
-                let eight_hours_later = now + Duration::days(2);       // time filter
+                let eight_hours_later = now + Duration::hours(4);       // time filter
                 println!("{}", now);
                 println!("{}\n", eight_hours_later);
                 
@@ -85,6 +85,23 @@ fn main() {
 
                         // title of the game
                         let title = event.get("title").unwrap().as_str().unwrap();
+
+                        // slug of the game
+                        let slug = event.get("slug").unwrap().as_str().unwrap();
+                        
+                        // extract endDate from event info
+                        let end_date_str = match event.get("endDate")
+                            .and_then(Value::as_str) {
+                                Some(v) => v,
+                                None => continue,
+                            };
+                        let end_date: DateTime<Utc> = DateTime::parse_from_rfc3339(end_date_str)
+                            .unwrap()
+                            .with_timezone(&Utc);
+                        if !(end_date > now && end_date <= eight_hours_later) {
+                            continue;
+                        }
+                        let end_date_hst = utc_to_hst(end_date_str);
                         
                         // filtering for binary 'vs' markets
                         let event_tags: Vec<String> = event.get("tags")
@@ -106,80 +123,88 @@ fn main() {
                         
                         // getting clob_token_ids
                         let markets = event.get("markets").and_then(Value::as_array);
-                        let mut moneyline_market = "";
-                        let mut binary_tokens: Vec<Value> = Vec::new();
-                        let mut outcomes: Vec<Value> = Vec::new();
+                        let mut market_entries: Vec<Value> = Vec::new();
+                        // let mut binary_tokens: Vec<Value> = Vec::new();
+                        // let mut outcomes: Vec<Value> = Vec::new();
                         if let Some(markets) = markets {
                             println!("EVENT: {} | Total markets: {}", title, markets.len());
+                            println!("EndDate: {}", end_date_hst);
 
                             for market in markets {
                                 let sports_market_type = market.get("sportsMarketType").and_then(Value::as_str).unwrap_or("N/A");
                                 if sports_market_type != "moneyline" {
                                     continue;
                                 }
-                                // let question = market.get("question").and_then(Value::as_str).unwrap_or("N/A");
-                                let clob_token_ids = market.get("clobTokenIds").and_then(Value::as_str).unwrap_or("N/A");
 
-                                // println!("  Question: {}", question);
-                                // println!("  sportsMarketType: {}", sports_market_type);
+                                let question = market.get("question").and_then(Value::as_str).unwrap_or("N/A");
+                                let clob_token_ids = market.get("clobTokenIds").and_then(Value::as_str).unwrap_or("N/A");
+                                let binary_tokens: Vec<Value> = serde_json::from_str(clob_token_ids).unwrap_or_default();
+                                let outcomes: Vec<Value> = serde_json::from_str(
+                                    market.get("outcomes").and_then(Value::as_str).unwrap_or("[]")).unwrap_or_default();
+                                
+                                println!("  Question: {}", question);
+                                println!("  sportsMarketType: {}", sports_market_type);
                                 // println!("  clobTokenIds: {}", clob_token_ids);
                                 
-                                moneyline_market = sports_market_type;
-                                binary_tokens = serde_json::from_str(clob_token_ids).unwrap_or_default();
-                                outcomes = serde_json::from_str(market.get("outcomes")
-                                    .and_then(Value::as_str)
-                                    .unwrap_or("[]"))
-                                    .unwrap_or_default();
+                                // moneyline_market = sports_market_type;
+                                // binary_tokens = serde_json::from_str(clob_token_ids).unwrap_or_default();
+                                // outcomes = serde_json::from_str(market.get("outcomes")
+                                    // .and_then(Value::as_str)
+                                    // .unwrap_or("[]"))
+                                    // .unwrap_or_default();
+
+                                // get orderbook prices
+                                let mut side_entries: Vec<Value> = Vec::new();
+                                for (i, token) in binary_tokens.iter().enumerate() {
+                                    let token_str = match token.as_str() {
+                                        Some(v) => v,
+                                        None => continue,
+                                    };
+
+                                    let clob_url = format!("https://clob.polymarket.com/book?token_id={}", token_str);
+                                    let clob_response = ureq::get(&clob_url).call().unwrap();
+                                    let mut clob_body = String::new();
+                                    clob_response.into_reader().read_to_string(&mut clob_body).unwrap();
+
+                                    let book: Value = serde_json::from_str(&clob_body).unwrap();
+                                    let best_ask = book.get("asks")
+                                        .and_then(Value::as_array)
+                                        .and_then(|b| b.last())
+                                        .and_then(|b| b.get("price"))
+                                        .and_then(Value::as_str)
+                                        .unwrap_or("N/A");
+
+                                    let outcome = outcomes.get(i).and_then(Value::as_str).unwrap_or("Unkown");
+                                    println!(" {} | Ask: {}", outcome, best_ask);
+
+                                    side_entries.push(serde_json::json!({
+                                        "outcome": outcome,
+                                        "token_id": token_str,
+                                        "best_ask": best_ask
+                                    }))
+                                }
+                                market_entries.push(serde_json::json!({
+                                    "question": question,
+                                    "sides": side_entries,
+                                    "sports_market_type": sports_market_type,
+                                }))
                             }   
                         }
-                        // println!();
+                        println!();
 
-                        // get orderbook prices
-                        for (i, token) in binary_tokens.iter().enumerate() {
-                            let token_str = match token.as_str() {
-                                Some(v) => v,
-                                None => continue,
-                            };
+                        let simplified = serde_json::json!({
+                            "id": id,
+                            "tag_id": event_tags,
+                            "title": title,
+                            "slug": slug,
+                            "endDateHST": end_date_hst,
+                            "market_entires": market_entries 
+                        });
 
-                            let clob_url = format!("https://clob.polymarket.com/book?token_id={}", token_str);
-                            let clob_response = ureq::get(&clob_url).call().unwrap();
-                        }
-                        
-                        // slug of the game
-                        let slug = event.get("slug").unwrap().as_str().unwrap();
-                        
-                        // extract endDate from event info
-                        let end_date_str = match event.get("endDate")
-                            .and_then(Value::as_str) {
-                                Some(v) => v,
-                                None => continue,
-                            };
-                        let end_date: DateTime<Utc> = DateTime::parse_from_rfc3339(end_date_str)
-                            .unwrap()
-                            .with_timezone(&Utc);
-                        
-                        // check if within 8 hours
-                        if end_date > now && end_date <= eight_hours_later {
-                            let end_date_hst = utc_to_hst(end_date_str);
-                            let simplified = serde_json::json!({
-                                "id": id,
-                                "tag_id": event_tags,
-                                "title": title,
-                                "slug": slug,
-                                "endDateHST": end_date_hst,
-                                "event_tokens" : {
-                                    "sports_market_type": moneyline_market,
-                                    "monelyine_ids": binary_tokens
-                                },
-                                "outcomes": outcomes,
-                            });
-                            // println!("{}", end_date_hst);
-                            // println!("{}\n", slug);
+                        println!("TITLE: {} | TAGS: {:?}\n", title, event_tags);
 
-                            // println!("TITLE: {} | TAGS: {:?}\n", title, event_tags);
-
-                            filtered.push(simplified);
-                        }
+                        filtered.push(simplified);
+                        // }
                     }
                 }
                 
@@ -192,10 +217,10 @@ fn main() {
                     "https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}",
                     bot_token,
                     chat_id,
-                    message
+                    message.replace(" ", "%20")
                 );
 
-                Client::new().get(&url).send().unwrap();
+                ureq::get(&url).call().unwrap();
 
             }
 
