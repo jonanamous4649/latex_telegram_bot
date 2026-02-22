@@ -4,5 +4,15 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-# HTTP clinet for Telegram API
+# HTTP client for Telegram API
 reqwest = { version = "0.11", features = ["blocking"]}
+
+# to fetch url
+ureq = "2.9"
+
+# nice JSON formatting
+serde_json = "1.0"
+
+# for UTC -> HST
+chrono = "0.4"
+chrono-tz = "0.8"

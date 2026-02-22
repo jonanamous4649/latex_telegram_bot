@@ -1,0 +1,671 @@
+[
+  {
+    "endDateHST": "February 22, 2026 08:00 AM HST",
+    "id": "211693",
+    "slug": "nba-cle-okc-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Cavaliers vs. Thunder"
+  },
+  {
+    "endDateHST": "February 22, 2026 10:30 AM HST",
+    "id": "211696",
+    "slug": "nba-bkn-atl-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Nets vs. Hawks"
+  },
+  {
+    "endDateHST": "February 22, 2026 10:30 AM HST",
+    "id": "211699",
+    "slug": "nba-tor-mil-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Raptors vs. Bucks"
+  },
+  {
+    "endDateHST": "February 22, 2026 10:30 AM HST",
+    "id": "211702",
+    "slug": "nba-den-gsw-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Nuggets vs. Warriors"
+  },
+  {
+    "endDateHST": "February 22, 2026 12:00 PM HST",
+    "id": "211705",
+    "slug": "nba-dal-ind-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Mavericks vs. Pacers"
+  },
+  {
+    "endDateHST": "February 22, 2026 01:00 PM HST",
+    "id": "211708",
+    "slug": "nba-cha-was-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Hornets vs. Wizards"
+  },
+  {
+    "endDateHST": "February 22, 2026 01:30 PM HST",
+    "id": "211712",
+    "slug": "nba-bos-lal-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Celtics vs. Lakers"
+  },
+  {
+    "endDateHST": "February 22, 2026 02:00 PM HST",
+    "id": "211715",
+    "slug": "nba-phi-min-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "76ers vs. Timberwolves"
+  },
+  {
+    "endDateHST": "February 22, 2026 03:00 PM HST",
+    "id": "211719",
+    "slug": "nba-nyk-chi-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Knicks vs. Bulls"
+  },
+  {
+    "endDateHST": "February 22, 2026 03:00 PM HST",
+    "id": "211721",
+    "slug": "nba-por-phx-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Trail Blazers vs. Suns"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:00 PM HST",
+    "id": "211724",
+    "slug": "nba-orl-lac-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Magic vs. Clippers"
+  },
+  {
+    "endDateHST": "February 23, 2026 02:00 PM HST",
+    "id": "212915",
+    "slug": "nba-sas-det-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Spurs vs. Pistons"
+  },
+  {
+    "endDateHST": "February 23, 2026 03:00 PM HST",
+    "id": "212919",
+    "slug": "nba-sac-mem-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Kings vs. Grizzlies"
+  },
+  {
+    "endDateHST": "February 23, 2026 04:30 PM HST",
+    "id": "212923",
+    "slug": "nba-uta-hou-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Jazz vs. Rockets"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:00 AM HST",
+    "id": "202983",
+    "slug": "epl-not-liv-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "82:Premier League",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Nottingham Forest FC vs. Liverpool FC"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:00 AM HST",
+    "id": "202992",
+    "slug": "epl-sun-ful-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "82:Premier League",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Sunderland AFC vs. Fulham FC"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:00 AM HST",
+    "id": "202998",
+    "slug": "epl-cry-wol-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "306:EPL",
+      "82:Premier League",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Crystal Palace FC vs. Wolverhampton Wanderers FC"
+  },
+  {
+    "endDateHST": "February 22, 2026 06:30 AM HST",
+    "id": "203002",
+    "slug": "epl-tot-ars-2026-02-22",
+    "tag_id": [
+      "82:Premier League",
+      "1:Sports",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Tottenham Hotspur FC vs. Arsenal FC"
+  },
+  {
+    "endDateHST": "February 22, 2026 06:30 AM HST",
+    "id": "203058",
+    "slug": "epl-tot-ars-2026-02-22-more-markets",
+    "tag_id": [
+      "1:Sports",
+      "82:Premier League",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Tottenham Hotspur FC vs. Arsenal FC - More Markets"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:00 AM HST",
+    "id": "203064",
+    "slug": "epl-cry-wol-2026-02-22-more-markets",
+    "tag_id": [
+      "1:Sports",
+      "82:Premier League",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Crystal Palace FC vs. Wolverhampton Wanderers FC - More Markets"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:00 AM HST",
+    "id": "203068",
+    "slug": "epl-sun-ful-2026-02-22-more-markets",
+    "tag_id": [
+      "1:Sports",
+      "82:Premier League",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Sunderland AFC vs. Fulham FC - More Markets"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:00 AM HST",
+    "id": "203074",
+    "slug": "epl-not-liv-2026-02-22-more-markets",
+    "tag_id": [
+      "1:Sports",
+      "82:Premier League",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Nottingham Forest FC vs. Liverpool FC - More Markets"
+  },
+  {
+    "endDateHST": "February 23, 2026 10:00 AM HST",
+    "id": "203949",
+    "slug": "epl-eve-mun-2026-02-23",
+    "tag_id": [
+      "100639:Games",
+      "100350:Soccer",
+      "82:Premier League",
+      "306:EPL",
+      "1:Sports"
+    ],
+    "title": "Everton FC vs. Manchester United FC"
+  },
+  {
+    "endDateHST": "February 23, 2026 10:00 AM HST",
+    "id": "203988",
+    "slug": "epl-eve-mun-2026-02-23-more-markets",
+    "tag_id": [
+      "1:Sports",
+      "82:Premier League",
+      "306:EPL",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Everton FC vs. Manchester United FC - More Markets"
+  },
+  {
+    "endDateHST": "February 22, 2026 01:15 AM HST",
+    "id": "188152",
+    "slug": "ere-twe-gro-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "101735:Eredivisie"
+    ],
+    "title": "FC Twente '65 vs. FC Groningen"
+  },
+  {
+    "endDateHST": "February 22, 2026 03:30 AM HST",
+    "id": "188153",
+    "slug": "ere-goa-her-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "101735:Eredivisie"
+    ],
+    "title": "Go Ahead Eagles vs. Heracles Almelo"
+  },
+  {
+    "endDateHST": "February 22, 2026 03:30 AM HST",
+    "id": "188154",
+    "slug": "ere-utr-zwo-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "101735:Eredivisie"
+    ],
+    "title": "FC Utrecht vs. PEC Zwolle"
+  },
+  {
+    "endDateHST": "February 22, 2026 02:00 AM HST",
+    "id": "188571",
+    "slug": "cze1-bop-fdp-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100350:Soccer",
+      "100639:Games"
+    ],
+    "title": "Bohemians Praha 1905 vs. FK Dukla Praha"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:30 AM HST",
+    "id": "188577",
+    "slug": "cze1-fbo-fmb-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "FC Baník Ostrava vs. FK Mladá Boleslav"
+  },
+  {
+    "endDateHST": "February 22, 2026 05:00 AM HST",
+    "id": "188581",
+    "slug": "chi1-cls-cu1-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "CD La Serena vs. CD Universidad de Concepción"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:30 AM HST",
+    "id": "188582",
+    "slug": "cze1-fkt-sso-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "FK Teplice vs. SK Sigma Olomouc"
+  },
+  {
+    "endDateHST": "February 22, 2026 07:30 AM HST",
+    "id": "188587",
+    "slug": "cze1-fvp-asp-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "FC Viktoria Plzeň vs. AC Sparta Praha"
+  },
+  {
+    "endDateHST": "February 22, 2026 03:00 AM HST",
+    "id": "188661",
+    "slug": "den-ran-fcf-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "102652:Denmark Superliga",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Randers FC vs. FC Fredericia"
+  },
+  {
+    "endDateHST": "February 22, 2026 05:00 AM HST",
+    "id": "188666",
+    "slug": "den-sif-mid-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "102652:Denmark Superliga",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Silkeborg IF vs. FC Midtjylland"
+  },
+  {
+    "endDateHST": "February 22, 2026 07:00 AM HST",
+    "id": "188670",
+    "slug": "den-agf-vib-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "102652:Denmark Superliga",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Aarhus GF vs. Viborg FF"
+  },
+  {
+    "endDateHST": "February 22, 2026 02:00 AM HST",
+    "id": "189043",
+    "slug": "elc-she-swe-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "102643:EFL Championship",
+      "100350:Soccer",
+      "100639:Games"
+    ],
+    "title": "Sheffield United FC vs. Sheffield Wednesday FC"
+  },
+  {
+    "endDateHST": "February 22, 2026 05:45 AM HST",
+    "id": "189537",
+    "slug": "ere-az-spa-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "101735:Eredivisie"
+    ],
+    "title": "AZ vs. Sparta Rotterdam"
+  },
+  {
+    "endDateHST": "February 22, 2026 09:00 AM HST",
+    "id": "189538",
+    "slug": "ere-fey-tel-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "101735:Eredivisie"
+    ],
+    "title": "Feyenoord Rotterdam vs. Telstar 1963"
+  },
+  {
+    "endDateHST": "February 22, 2026 02:00 PM HST",
+    "id": "189616",
+    "slug": "mls-lag-nyc-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "100100:MLS"
+    ],
+    "title": "Los Angeles Galaxy vs. New York City FC"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:15 PM HST",
+    "id": "189620",
+    "slug": "mls-sea-col-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "100100:MLS"
+    ],
+    "title": "Seattle Sounders FC vs. Colorado Rapids SC"
+  },
+  {
+    "endDateHST": "February 22, 2026 01:00 PM HST",
+    "id": "189645",
+    "slug": "mex-pum-mon1-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "102448:Liga MX"
+    ],
+    "title": "Pumas de la UNAM vs. CF Monterrey"
+  },
+  {
+    "endDateHST": "February 22, 2026 03:00 PM HST",
+    "id": "189646",
+    "slug": "mex-que-jua-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "102448:Liga MX"
+    ],
+    "title": "Querétaro FC vs. FC Juárez"
+  },
+  {
+    "endDateHST": "February 22, 2026 05:06 PM HST",
+    "id": "189647",
+    "slug": "mex-tij-maz-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "102448:Liga MX"
+    ],
+    "title": "Club Tijuana vs. Mazatlán FC"
+  },
+  {
+    "endDateHST": "February 22, 2026 04:15 PM HST",
+    "id": "189655",
+    "slug": "mls-sea-col-2026-02-22-more-markets",
+    "tag_id": [
+      "100639:Games",
+      "100100:MLS",
+      "1:Sports",
+      "100350:Soccer"
+    ],
+    "title": "Seattle Sounders FC vs. Colorado Rapids SC - More Markets"
+  },
+  {
+    "endDateHST": "February 22, 2026 02:00 PM HST",
+    "id": "189660",
+    "slug": "mls-lag-nyc-2026-02-22-more-markets",
+    "tag_id": [
+      "1:Sports",
+      "100100:MLS",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Los Angeles Galaxy vs. New York City FC - More Markets"
+  },
+  {
+    "endDateHST": "February 22, 2026 11:30 AM HST",
+    "id": "189676",
+    "slug": "arg-vel-riv-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "102561:Argentina Primera División"
+    ],
+    "title": "CA Vélez Sarsfield vs. CA River Plate"
+  },
+  {
+    "endDateHST": "February 22, 2026 02:00 PM HST",
+    "id": "189677",
+    "slug": "arg-uni-ald-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer",
+      "102561:Argentina Primera División"
+    ],
+    "title": "CA Unión vs. CA Aldosivi"
+  },
+  {
+    "endDateHST": "February 23, 2026 09:30 AM HST",
+    "id": "189720",
+    "slug": "egy1-sms-eas-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Smouha SC vs. El Ahly SC"
+  },
+  {
+    "endDateHST": "February 22, 2026 11:00 AM HST",
+    "id": "189721",
+    "slug": "chi1-aci-edv-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Audax CS Italiano vs. Everton de Viña del Mar"
+  },
+  {
+    "endDateHST": "February 22, 2026 01:30 PM HST",
+    "id": "189723",
+    "slug": "chi1-cud-cdl-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "CF Universidad de Chile vs. CD Limache"
+  },
+  {
+    "endDateHST": "February 23, 2026 09:30 AM HST",
+    "id": "189724",
+    "slug": "egy1-egs-eme-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "El Gouna SC vs. El Mokawloon El Arab SC"
+  },
+  {
+    "endDateHST": "February 22, 2026 11:00 AM HST",
+    "id": "189725",
+    "slug": "col1-isf-cjf-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Independiente Santa Fe vs. CDP Junior FC"
+  },
+  {
+    "endDateHST": "February 23, 2026 09:30 AM HST",
+    "id": "189726",
+    "slug": "egy1-kif-teg-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Kahrabaa Ismailia FC vs. Tala'ea El Gaish SC"
+  },
+  {
+    "endDateHST": "February 22, 2026 01:10 PM HST",
+    "id": "189727",
+    "slug": "col1-bcf-gdr-2026-02-22",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Boyacá Chicó FC vs. Águilas Doradas Rionegro"
+  },
+  {
+    "endDateHST": "February 23, 2026 08:00 AM HST",
+    "id": "189759",
+    "slug": "den-bro-sjs-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "102652:Denmark Superliga",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Brøndby IF vs. Sønderjyske Fodbold"
+  },
+  {
+    "endDateHST": "February 23, 2026 11:00 AM HST",
+    "id": "190630",
+    "slug": "col1-cdf-cdt-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Cúcuta Deportivo FC vs. CD Tolima"
+  }
+]
