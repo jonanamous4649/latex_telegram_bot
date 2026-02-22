@@ -56,12 +56,17 @@ fn main() {
 
                 Client::new().get(&url).send().unwrap();
 
-                let tag_ids = vec!["100149", "101178", "100351", "450", "745", "100350", "82", "101674", "102779", "100639", "864", "101232", "102123"];
+                let tag_ids = vec![
+                    "100149", "101178", "100351", "450", "745", "100350",
+                    "82", "101674", "102779", "100639", "864", "101232", "102123",
+                    "64", "65", "100780", "101672", "102366", "102750", "102753",
+                    "102754", "102755", "102756", "102758", "102759"
+                ];
                 let now_str = Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string();
                 let now = Utc::now();                                   // current time
-                let eight_hours_later = now + Duration::hours(4);       // time filter
+                let hours_later = now + Duration::hours(8);       // time filter
                 println!("{}", now);
-                println!("{}\n", eight_hours_later);
+                println!("{}\n", hours_later);
                 
                 let mut filtered = Vec::new();
                 for tag_id in tag_ids {
@@ -69,6 +74,9 @@ fn main() {
                         "https://gamma-api.polymarket.com/events?limit=50&end_date_min={}&closed=false&tag_id={}",
                         now_str, tag_id
                     );
+                    // let url = format!(
+                    //     "https://gamma-api.polymarket.com/events?limit=50&closed=false&tag_id=100780",
+                    // );
                     let response = ureq::get(&url).call().unwrap();
                     let mut body = String::new();
                     response.into_reader().read_to_string(&mut body).unwrap();
@@ -98,7 +106,7 @@ fn main() {
                         let end_date: DateTime<Utc> = DateTime::parse_from_rfc3339(end_date_str)
                             .unwrap()
                             .with_timezone(&Utc);
-                        if !(end_date > now && end_date <= eight_hours_later) {
+                        if !(end_date > now && end_date <= hours_later) {
                             continue;
                         }
                         let end_date_hst = utc_to_hst(end_date_str);
@@ -162,7 +170,10 @@ fn main() {
                                     };
 
                                     let clob_url = format!("https://clob.polymarket.com/book?token_id={}", token_str);
-                                    let clob_response = ureq::get(&clob_url).call().unwrap();
+                                    let clob_response = match ureq::get(&clob_url).call() {
+                                        Ok(r) => r,
+                                        Err(_) => continue,
+                                    };
                                     let mut clob_body = String::new();
                                     clob_response.into_reader().read_to_string(&mut clob_body).unwrap();
 
@@ -174,13 +185,18 @@ fn main() {
                                         .and_then(Value::as_str)
                                         .unwrap_or("N/A");
 
+                                    if best_ask == "N/A" {
+                                        side_entries.clear();
+                                        break;
+                                    }
+
                                     let outcome = outcomes.get(i).and_then(Value::as_str).unwrap_or("Unkown");
                                     println!(" {} | Ask: {}", outcome, best_ask);
 
                                     side_entries.push(serde_json::json!({
                                         "outcome": outcome,
-                                        "token_id": token_str,
-                                        "best_ask": best_ask
+                                        // "token_id": token_str,
+                                        "best_ask": best_ask,
                                     }))
                                 }
                                 market_entries.push(serde_json::json!({
@@ -190,7 +206,6 @@ fn main() {
                                 }))
                             }   
                         }
-                        println!();
 
                         let simplified = serde_json::json!({
                             "id": id,
@@ -201,7 +216,7 @@ fn main() {
                             "market_entires": market_entries 
                         });
 
-                        println!("TITLE: {} | TAGS: {:?}\n", title, event_tags);
+                        println!("TAGS: {:?}\n", event_tags);
 
                         filtered.push(simplified);
                         // }
