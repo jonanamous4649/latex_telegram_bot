@@ -56,6 +56,9 @@ fn main() {
 
                 Client::new().get(&url).send().unwrap();
 
+                // ================================================================================
+                // SEARCH PARAMS
+                // ================================================================================
                 let tag_ids = vec![
                     "100149", "101178", "100351", "450", "745", "100350",
                     "82", "101674", "102779", "100639", "864", "101232", "102123",
@@ -65,8 +68,8 @@ fn main() {
                 let now_str = Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string();
                 let now = Utc::now();                                   // current time
                 let hours_later = now + Duration::hours(8);       // time filter
-                println!("{}", now);
-                println!("{}\n", hours_later);
+                // println!("{}", now);
+                // println!("{}\n", hours_later);
                 
                 let mut filtered = Vec::new();
                 for tag_id in tag_ids {
@@ -82,7 +85,7 @@ fn main() {
                     response.into_reader().read_to_string(&mut body).unwrap();
 
                     // ============================================================
-                    // DATA EXTRACTION AND .JSON OUTPUT
+                    // EVENT FINDER
                     // ============================================================
                     let events: Vec<Value> = serde_json::from_str(&body).unwrap();         // all data drom gamma API
 
@@ -153,15 +156,10 @@ fn main() {
                                 println!("  Question: {}", question);
                                 println!("  sportsMarketType: {}", sports_market_type);
                                 // println!("  clobTokenIds: {}", clob_token_ids);
-                                
-                                // moneyline_market = sports_market_type;
-                                // binary_tokens = serde_json::from_str(clob_token_ids).unwrap_or_default();
-                                // outcomes = serde_json::from_str(market.get("outcomes")
-                                    // .and_then(Value::as_str)
-                                    // .unwrap_or("[]"))
-                                    // .unwrap_or_default();
 
-                                // get orderbook prices
+                                // ================================================================================
+                                // ORDERBOOK PRICES
+                                // ================================================================================
                                 let mut side_entries: Vec<Value> = Vec::new();
                                 for (i, token) in binary_tokens.iter().enumerate() {
                                     let token_str = match token.as_str() {
@@ -206,7 +204,10 @@ fn main() {
                                 }))
                             }   
                         }
-
+                        
+                        // ================================================================================
+                        // JSON FILE FORMAT
+                        // ================================================================================
                         let simplified = serde_json::json!({
                             "id": id,
                             "tag_id": event_tags,
@@ -223,6 +224,9 @@ fn main() {
                     }
                 }
                 
+                // ================================================================================
+                // SAVING JSON FILE
+                // ================================================================================
                 let result = serde_json::to_string_pretty(&filtered).unwrap();
                 fs::create_dir_all("events").unwrap();
                 write("events/polymarket_btc_events.json", result).unwrap();
