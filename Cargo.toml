@@ -29,7 +29,8 @@ chrono-tz = "0.8"
 # WebSocket client for future real-time price monitoring via
 # Polymarket's CLOB WebSocket feed (wss://ws-subscriptions-clob.polymarket.com).
 # Not yet wired up — placeholder for next phase.
-tungstenite = { version = "0.20", features = ["native-tls"] }
+tokio-tungstenite = { version = "0.20", features = ["native-tls"] }
+futures-util = "0.3"
 
 # Async runtime — drives all async functions and manages the task scheduler
 # that allows parallel HTTP requests to run concurrently on one thread.
