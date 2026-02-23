@@ -1,700 +1,27 @@
 [
   {
-    "endDateHST": "February 22, 2026 08:00 AM HST",
-    "id": "211693",
-    "market_entires": [
+    "endDateHST": "February 23, 2026 08:00 AM HST",
+    "id": "189759",
+    "market_entries": [
       {
-        "question": "Cavaliers vs. Thunder",
+        "question": "Will Brøndby IF win on 2026-02-23?",
         "sides": [
-          {
-            "best_ask": "0.61",
-            "outcome": "Cavaliers"
-          },
-          {
-            "best_ask": "0.4",
-            "outcome": "Thunder"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "nba-cle-okc-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "745:NBA",
-      "100639:Games",
-      "28:Basketball"
-    ],
-    "title": "Cavaliers vs. Thunder"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:30 AM HST",
-    "id": "211696",
-    "market_entires": [
-      {
-        "question": "Nets vs. Hawks",
-        "sides": [
-          {
-            "best_ask": "0.22",
-            "outcome": "Nets"
-          },
-          {
-            "best_ask": "0.8",
-            "outcome": "Hawks"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "nba-bkn-atl-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "745:NBA",
-      "100639:Games",
-      "28:Basketball"
-    ],
-    "title": "Nets vs. Hawks"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:30 AM HST",
-    "id": "211699",
-    "market_entires": [
-      {
-        "question": "Raptors vs. Bucks",
-        "sides": [
-          {
-            "best_ask": "0.59",
-            "outcome": "Raptors"
-          },
-          {
-            "best_ask": "0.42",
-            "outcome": "Bucks"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "nba-tor-mil-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "745:NBA",
-      "100639:Games",
-      "28:Basketball"
-    ],
-    "title": "Raptors vs. Bucks"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:30 AM HST",
-    "id": "211702",
-    "market_entires": [
-      {
-        "question": "Nuggets vs. Warriors",
-        "sides": [
-          {
-            "best_ask": "0.68",
-            "outcome": "Nuggets"
-          },
-          {
-            "best_ask": "0.33",
-            "outcome": "Warriors"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "nba-den-gsw-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "745:NBA",
-      "100639:Games",
-      "28:Basketball"
-    ],
-    "title": "Nuggets vs. Warriors"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "202983",
-    "market_entires": [
-      {
-        "question": "Will Nottingham Forest FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.24",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.77",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Nottingham Forest FC vs. Liverpool FC end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.26",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.75",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Liverpool FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.51",
-            "outcome": "Yes"
-          },
           {
             "best_ask": "0.5",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "epl-not-liv-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "82:Premier League",
-      "306:EPL",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Nottingham Forest FC vs. Liverpool FC"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "202992",
-    "market_entires": [
-      {
-        "question": "Will Sunderland AFC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.35",
             "outcome": "Yes"
           },
           {
-            "best_ask": "0.66",
+            "best_ask": "0.51",
             "outcome": "No"
           }
         ],
         "sports_market_type": "moneyline"
       },
       {
-        "question": "Will Sunderland AFC vs. Fulham FC end in a draw?",
+        "question": "Will Brøndby IF vs. Sønderjyske Fodbold end in a draw?",
         "sides": [
           {
-            "best_ask": "0.31",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.7",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Fulham FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.35",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.66",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "epl-sun-ful-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "82:Premier League",
-      "306:EPL",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Sunderland AFC vs. Fulham FC"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "202998",
-    "market_entires": [
-      {
-        "question": "Will Crystal Palace FC vs. Wolverhampton Wanderers FC end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.27",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.74",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Wolverhampton Wanderers FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.21",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.8",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Crystal Palace FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.54",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.47",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "epl-cry-wol-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "306:EPL",
-      "82:Premier League",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Crystal Palace FC vs. Wolverhampton Wanderers FC"
-  },
-  {
-    "endDateHST": "February 22, 2026 06:30 AM HST",
-    "id": "203002",
-    "market_entires": [
-      {
-        "question": "Will Arsenal FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.66",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.35",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Tottenham Hotspur FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.13",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.88",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Tottenham Hotspur FC vs. Arsenal FC end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.22",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.79",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "epl-tot-ars-2026-02-22",
-    "tag_id": [
-      "82:Premier League",
-      "1:Sports",
-      "306:EPL",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Tottenham Hotspur FC vs. Arsenal FC"
-  },
-  {
-    "endDateHST": "February 22, 2026 06:30 AM HST",
-    "id": "203058",
-    "market_entires": [],
-    "slug": "epl-tot-ars-2026-02-22-more-markets",
-    "tag_id": [
-      "1:Sports",
-      "82:Premier League",
-      "306:EPL",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Tottenham Hotspur FC vs. Arsenal FC - More Markets"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "203064",
-    "market_entires": [],
-    "slug": "epl-cry-wol-2026-02-22-more-markets",
-    "tag_id": [
-      "1:Sports",
-      "82:Premier League",
-      "306:EPL",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Crystal Palace FC vs. Wolverhampton Wanderers FC - More Markets"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "203068",
-    "market_entires": [],
-    "slug": "epl-sun-ful-2026-02-22-more-markets",
-    "tag_id": [
-      "1:Sports",
-      "82:Premier League",
-      "306:EPL",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Sunderland AFC vs. Fulham FC - More Markets"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "203074",
-    "market_entires": [],
-    "slug": "epl-not-liv-2026-02-22-more-markets",
-    "tag_id": [
-      "1:Sports",
-      "82:Premier League",
-      "306:EPL",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Nottingham Forest FC vs. Liverpool FC - More Markets"
-  },
-  {
-    "endDateHST": "February 22, 2026 03:30 AM HST",
-    "id": "188153",
-    "market_entires": [
-      {
-        "question": "Will Go Ahead Eagles win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.49",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.52",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Go Ahead Eagles vs. Heracles Almelo end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.27",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.74",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Heracles Almelo win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.26",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.75",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "ere-goa-her-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "100639:Games",
-      "100350:Soccer",
-      "101735:Eredivisie"
-    ],
-    "title": "Go Ahead Eagles vs. Heracles Almelo"
-  },
-  {
-    "endDateHST": "February 22, 2026 03:30 AM HST",
-    "id": "188154",
-    "market_entires": [
-      {
-        "question": "Will FC Utrecht win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.6",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.41",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will FC Utrecht vs. PEC Zwolle end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.23",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.78",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will PEC Zwolle win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.18",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.83",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "ere-utr-zwo-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "100639:Games",
-      "100350:Soccer",
-      "101735:Eredivisie"
-    ],
-    "title": "FC Utrecht vs. PEC Zwolle"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:30 AM HST",
-    "id": "188577",
-    "market_entires": [
-      {
-        "question": "Will FC Baník Ostrava win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.57",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.46",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will FC Baník Ostrava vs. FK Mladá Boleslav end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.25",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.8",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will FK Mladá Boleslav win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.22",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.81",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cze1-fbo-fmb-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "FC Baník Ostrava vs. FK Mladá Boleslav"
-  },
-  {
-    "endDateHST": "February 22, 2026 05:00 AM HST",
-    "id": "188581",
-    "market_entires": [
-      {
-        "question": "Will CD La Serena win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.37",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.64",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will CD La Serena vs. CD Universidad de Concepción end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.3",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.72",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will CD Universidad de Concepción win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.35",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.67",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "chi1-cls-cu1-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "CD La Serena vs. CD Universidad de Concepción"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:30 AM HST",
-    "id": "188582",
-    "market_entires": [
-      {
-        "question": "Will FK Teplice win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.34",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.67",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will FK Teplice vs. SK Sigma Olomouc end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.34",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.7",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will SK Sigma Olomouc win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.34",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.68",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cze1-fkt-sso-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "FK Teplice vs. SK Sigma Olomouc"
-  },
-  {
-    "endDateHST": "February 22, 2026 07:30 AM HST",
-    "id": "188587",
-    "market_entires": [
-      {
-        "question": "Will FC Viktoria Plzeň win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.35",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.67",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will FC Viktoria Plzeň vs. AC Sparta Praha end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.3",
+            "best_ask": "0.28",
             "outcome": "Yes"
           },
           {
@@ -705,219 +32,10 @@
         "sports_market_type": "moneyline"
       },
       {
-        "question": "Will AC Sparta Praha win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.38",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.63",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cze1-fvp-asp-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "FC Viktoria Plzeň vs. AC Sparta Praha"
-  },
-  {
-    "endDateHST": "February 22, 2026 03:00 AM HST",
-    "id": "188661",
-    "market_entires": [
-      {
-        "question": "Will Randers FC win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.59",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.42",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Randers FC vs. FC Fredericia end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.23",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.78",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will FC Fredericia win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.19",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.82",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "den-ran-fcf-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "102652:Denmark Superliga",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Randers FC vs. FC Fredericia"
-  },
-  {
-    "endDateHST": "February 22, 2026 05:00 AM HST",
-    "id": "188666",
-    "market_entires": [
-      {
-        "question": "Will Silkeborg IF win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.17",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.84",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Silkeborg IF vs. FC Midtjylland end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.2",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.81",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will FC Midtjylland win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.65",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.36",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "den-sif-mid-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "102652:Denmark Superliga",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Silkeborg IF vs. FC Midtjylland"
-  },
-  {
-    "endDateHST": "February 22, 2026 07:00 AM HST",
-    "id": "188670",
-    "market_entires": [
-      {
-        "question": "Will Aarhus GF win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.57",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.44",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Aarhus GF vs. Viborg FF end in a draw?",
+        "question": "Will Sønderjyske Fodbold win on 2026-02-23?",
         "sides": [
           {
             "best_ask": "0.24",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.78",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Viborg FF win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.21",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.81",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "den-agf-vib-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "102652:Denmark Superliga",
-      "100639:Games",
-      "100350:Soccer"
-    ],
-    "title": "Aarhus GF vs. Viborg FF"
-  },
-  {
-    "endDateHST": "February 22, 2026 05:45 AM HST",
-    "id": "189537",
-    "market_entires": [
-      {
-        "question": "Will AZ win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.55",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.46",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will AZ vs. Sparta Rotterdam end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.25",
             "outcome": "Yes"
           },
           {
@@ -926,703 +44,183 @@
           }
         ],
         "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Sparta Rotterdam win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.23",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.78",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
       }
     ],
-    "slug": "ere-az-spa-2026-02-22",
+    "slug": "den-bro-sjs-2026-02-23",
     "tag_id": [
       "1:Sports",
+      "102652:Denmark Superliga",
       "100639:Games",
-      "100350:Soccer",
-      "101735:Eredivisie"
+      "100350:Soccer"
     ],
-    "title": "AZ vs. Sparta Rotterdam"
+    "title": "Brøndby IF vs. Sønderjyske Fodbold"
   },
   {
-    "endDateHST": "February 22, 2026 09:00 AM HST",
-    "id": "189538",
-    "market_entires": [
+    "endDateHST": "February 23, 2026 05:00 AM HST",
+    "id": "206667",
+    "market_entries": [
       {
-        "question": "Will Feyenoord Rotterdam win on 2026-02-22?",
+        "question": "LoL: DN SOOPers Challengers vs Nongshim Esports Academy (BO5) - LCK Challengers League Kickoff Playoffs",
         "sides": [
           {
-            "best_ask": "0.81",
-            "outcome": "Yes"
+            "best_ask": "0.41",
+            "outcome": "DN SOOPers Challengers"
           },
           {
-            "best_ask": "0.2",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Feyenoord Rotterdam vs. Telstar 1963 end in a draw?",
-        "sides": [
-          {
-            "best_ask": "0.14",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.87",
-            "outcome": "No"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      },
-      {
-        "question": "Will Telstar 1963 win on 2026-02-22?",
-        "sides": [
-          {
-            "best_ask": "0.08",
-            "outcome": "Yes"
-          },
-          {
-            "best_ask": "0.93",
-            "outcome": "No"
+            "best_ask": "0.6",
+            "outcome": "Nongshim Esports Academy"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "ere-fey-tel-2026-02-22",
-    "tag_id": [
-      "1:Sports",
-      "100639:Games",
-      "100350:Soccer",
-      "101735:Eredivisie"
-    ],
-    "title": "Feyenoord Rotterdam vs. Telstar 1963"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:00 AM HST",
-    "id": "203335",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: Favbet vs HyperSpirit (BO3) - A1 Gaming League Playoffs",
-        "sides": [
-          {
-            "best_ask": "0.74",
-            "outcome": "Favbet"
-          },
-          {
-            "best_ask": "0.27",
-            "outcome": "HyperSpirit"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-fav-hs2-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: Favbet vs HyperSpirit (BO3) - A1 Gaming League Playoffs"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "218851",
-    "market_entires": [
-      {
-        "question": "LoL: T1 vs Dplus KIA (BO5) - LCK Cup Playoffs",
-        "sides": [],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "lol-t1-dk-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "65:league of legends",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "LoL: T1 vs Dplus KIA (BO5) - LCK Cup Playoffs"
-  },
-  {
-    "endDateHST": "February 22, 2026 04:00 AM HST",
-    "id": "222876",
-    "market_entires": [
-      {
-        "question": "LoL: VARREL YOUTH vs L Guide Gaming (BO1) - LJL Stage 1 Group B",
-        "sides": [],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "lol-vy-lguide-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "65:league of legends",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "LoL: VARREL YOUTH vs L Guide Gaming (BO1) - LJL Stage 1 Group B"
-  },
-  {
-    "endDateHST": "February 22, 2026 05:00 AM HST",
-    "id": "222878",
-    "market_entires": [
-      {
-        "question": "LoL: Yang Yang Gaming vs Uwinks (BO1) - LJL Stage 1 Group A",
-        "sides": [],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "lol-yyg-uwinks-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "65:league of legends",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "LoL: Yang Yang Gaming vs Uwinks (BO1) - LJL Stage 1 Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 06:00 AM HST",
-    "id": "222879",
-    "market_entires": [
-      {
-        "question": "LoL: DetonatioN FocusMe Academy vs New Meta (BO1) - LJL Stage 1 Group B",
-        "sides": [],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "lol-dfma-newmet-2026-02-22",
+    "slug": "lol-dnsc-nsea-2026-02-23",
     "tag_id": [
       "100639:Games",
       "1:Sports",
       "64:Esports",
       "65:league of legends"
     ],
-    "title": "LoL: DetonatioN FocusMe Academy vs New Meta (BO1) - LJL Stage 1 Group B"
+    "title": "LoL: DN SOOPers Challengers vs Nongshim Esports Academy (BO5) - LCK Challengers League Kickoff Playoffs"
   },
   {
-    "endDateHST": "February 22, 2026 07:00 AM HST",
-    "id": "222880",
-    "market_entires": [
+    "endDateHST": "February 23, 2026 07:00 AM HST",
+    "id": "225156",
+    "market_entries": [
       {
-        "question": "LoL: FENNEL vs Clocks (BO1) - LJL Stage 1 Group A",
-        "sides": [],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "lol-fnl-clo-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "65:league of legends",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "LoL: FENNEL vs Clocks (BO1) - LJL Stage 1 Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 08:00 AM HST",
-    "id": "222881",
-    "market_entires": [
-      {
-        "question": "LoL: Inferno Drive Tokyo vs Fast8 (BO1) - LJL Stage 1 Group B",
+        "question": "LoL: DetonatioN FocusMe Academy vs L Guide Gaming (BO1) - LJL Stage 1 Group B",
         "sides": [
           {
-            "best_ask": "0.85",
-            "outcome": "Inferno Drive Tokyo"
+            "best_ask": "0.96",
+            "outcome": "DetonatioN FocusMe Academy"
           },
           {
-            "best_ask": "0.85",
-            "outcome": "Fast8"
+            "best_ask": "0.95",
+            "outcome": "L Guide Gaming"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "lol-infern-fast8-2026-02-22",
+    "slug": "lol-dfma-lguide-2026-02-23",
     "tag_id": [
       "64:Esports",
       "65:league of legends",
       "100639:Games",
       "1:Sports"
     ],
-    "title": "LoL: Inferno Drive Tokyo vs Fast8 (BO1) - LJL Stage 1 Group B"
+    "title": "LoL: DetonatioN FocusMe Academy vs L Guide Gaming (BO1) - LJL Stage 1 Group B"
   },
   {
-    "endDateHST": "February 22, 2026 09:00 AM HST",
-    "id": "222882",
-    "market_entires": [
+    "endDateHST": "February 23, 2026 08:00 AM HST",
+    "id": "225157",
+    "market_entries": [
       {
-        "question": "LoL: NOVEX vs Rising Gaming (BO1) - LJL Stage 1 Group A",
+        "question": "LoL: NOVEX vs Clocks (BO1) - LJL Stage 1 Group A",
         "sides": [
           {
-            "best_ask": "0.33",
+            "best_ask": "0.7",
             "outcome": "NOVEX"
           },
           {
-            "best_ask": "0.7",
-            "outcome": "Rising Gaming"
+            "best_ask": "0.32",
+            "outcome": "Clocks"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "lol-novex-rg4-2026-02-22",
+    "slug": "lol-novex-clo-2026-02-23",
     "tag_id": [
       "64:Esports",
       "65:league of legends",
       "100639:Games",
       "1:Sports"
     ],
-    "title": "LoL: NOVEX vs Rising Gaming (BO1) - LJL Stage 1 Group A"
+    "title": "LoL: NOVEX vs Clocks (BO1) - LJL Stage 1 Group A"
   },
   {
-    "endDateHST": "February 22, 2026 10:00 AM HST",
-    "id": "203335",
-    "market_entires": [
+    "endDateHST": "February 23, 2026 09:00 AM HST",
+    "id": "225158",
+    "market_entries": [
       {
-        "question": "Counter-Strike: Favbet vs HyperSpirit (BO3) - A1 Gaming League Playoffs",
+        "question": "LoL: New Meta vs Inferno Drive Tokyo (BO1) - LJL Stage 1 Group B",
         "sides": [
           {
-            "best_ask": "0.74",
-            "outcome": "Favbet"
+            "best_ask": "0.23",
+            "outcome": "New Meta"
           },
           {
-            "best_ask": "0.27",
-            "outcome": "HyperSpirit"
+            "best_ask": "0.78",
+            "outcome": "Inferno Drive Tokyo"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "cs2-fav-hs2-2026-02-22",
+    "slug": "lol-newmet-infern-2026-02-23",
     "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: Favbet vs HyperSpirit (BO3) - A1 Gaming League Playoffs"
-  },
-  {
-    "endDateHST": "February 22, 2026 08:30 AM HST",
-    "id": "214912",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: Avanti Esport vs GamerLegion (BO1) - Parken Challenger Championship Group A",
-        "sides": [
-          {
-            "best_ask": "0.99",
-            "outcome": "Avanti Esport"
-          },
-          {
-            "best_ask": "0.99",
-            "outcome": "GamerLegion"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-avanti-gl1-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: Avanti Esport vs GamerLegion (BO1) - Parken Challenger Championship Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 08:30 AM HST",
-    "id": "214913",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: Sinners vs MINLATE (BO1) - Parken Challenger Championship Group A",
-        "sides": [
-          {
-            "best_ask": "0.98",
-            "outcome": "Sinners"
-          },
-          {
-            "best_ask": "0.98",
-            "outcome": "MINLATE"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-sin2-minlat-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: Sinners vs MINLATE (BO1) - Parken Challenger Championship Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 08:30 AM HST",
-    "id": "214914",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: MASONIC vs BC.Game Esports (BO1) - Parken Challenger Championship Group B",
-        "sides": [
-          {
-            "best_ask": "0.55",
-            "outcome": "MASONIC"
-          },
-          {
-            "best_ask": "0.98",
-            "outcome": "BC.Game Esports"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-msc-bcg-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: MASONIC vs BC.Game Esports (BO1) - Parken Challenger Championship Group B"
-  },
-  {
-    "endDateHST": "February 22, 2026 08:30 AM HST",
-    "id": "214915",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: 9INE vs BOSS (BO1) - Parken Challenger Championship Group B",
-        "sides": [
-          {
-            "best_ask": "0.93",
-            "outcome": "9INE"
-          },
-          {
-            "best_ask": "0.99",
-            "outcome": "BOSS"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-9ine-boss-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: 9INE vs BOSS (BO1) - Parken Challenger Championship Group B"
-  },
-  {
-    "endDateHST": "February 22, 2026 09:00 AM HST",
-    "id": "214916",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: Avanti Esport vs Sinners (BO1) - Parken Challenger Championship Group A",
-        "sides": [
-          {
-            "best_ask": "0.17",
-            "outcome": "Avanti Esport"
-          },
-          {
-            "best_ask": "0.9",
-            "outcome": "Sinners"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-avanti-sin2-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: Avanti Esport vs Sinners (BO1) - Parken Challenger Championship Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 09:00 AM HST",
-    "id": "214917",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: MINLATE vs ECSTATIC (BO1) - Parken Challenger Championship Group A",
-        "sides": [
-          {
-            "best_ask": "0.26",
-            "outcome": "MINLATE"
-          },
-          {
-            "best_ask": "0.79",
-            "outcome": "ECSTATIC"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-minlat-ecs-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: MINLATE vs ECSTATIC (BO1) - Parken Challenger Championship Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 09:00 AM HST",
-    "id": "214918",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: MASONIC vs 9INE (BO1) - Parken Challenger Championship Group B",
-        "sides": [
-          {
-            "best_ask": "0.45",
-            "outcome": "MASONIC"
-          },
-          {
-            "best_ask": "0.79",
-            "outcome": "9INE"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-msc-9ine-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: MASONIC vs 9INE (BO1) - Parken Challenger Championship Group B"
-  },
-  {
-    "endDateHST": "February 22, 2026 09:00 AM HST",
-    "id": "214919",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: BOSS vs Sashi Esport (BO1) - Parken Challenger Championship Group B",
-        "sides": [
-          {
-            "best_ask": "0.34",
-            "outcome": "BOSS"
-          },
-          {
-            "best_ask": "0.91",
-            "outcome": "Sashi Esport"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-boss-sashi-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: BOSS vs Sashi Esport (BO1) - Parken Challenger Championship Group B"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:00 AM HST",
-    "id": "214920",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: GamerLegion vs Sinners (BO1) - Parken Challenger Championship Group A",
-        "sides": [
-          {
-            "best_ask": "0.56",
-            "outcome": "GamerLegion"
-          },
-          {
-            "best_ask": "0.47",
-            "outcome": "Sinners"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-gl1-sin2-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: GamerLegion vs Sinners (BO1) - Parken Challenger Championship Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:00 AM HST",
-    "id": "214921",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: Phantom vs Avanti Esport (BO1) - Parken Challenger Championship Group A",
-        "sides": [
-          {
-            "best_ask": "0.94",
-            "outcome": "Phantom"
-          },
-          {
-            "best_ask": "0.17",
-            "outcome": "Avanti Esport"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-pha-avanti-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: Phantom vs Avanti Esport (BO1) - Parken Challenger Championship Group A"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:00 AM HST",
-    "id": "214922",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: illwill vs MASONIC (BO1) - Parken Challenger Championship Group B",
-        "sides": [
-          {
-            "best_ask": "0.81",
-            "outcome": "illwill"
-          },
-          {
-            "best_ask": "0.27",
-            "outcome": "MASONIC"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-ill-msc-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: illwill vs MASONIC (BO1) - Parken Challenger Championship Group B"
-  },
-  {
-    "endDateHST": "February 22, 2026 10:00 AM HST",
-    "id": "214923",
-    "market_entires": [
-      {
-        "question": "Counter-Strike: BC.Game Esports vs 9INE (BO1) - Parken Challenger Championship Group B",
-        "sides": [
-          {
-            "best_ask": "0.6",
-            "outcome": "BC.Game Esports"
-          },
-          {
-            "best_ask": "0.45",
-            "outcome": "9INE"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "cs2-bcg-9ine-2026-02-22",
-    "tag_id": [
-      "64:Esports",
-      "100780:counter strike 2",
-      "100639:Games",
-      "1:Sports"
-    ],
-    "title": "Counter-Strike: BC.Game Esports vs 9INE (BO1) - Parken Challenger Championship Group B"
-  },
-  {
-    "endDateHST": "February 22, 2026 06:30 AM HST",
-    "id": "221900",
-    "market_entires": [
-      {
-        "question": "Dota 2: Xtreme Gaming vs MOUZ (BO3) - DreamLeague Stage 2",
-        "sides": [],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "dota2-xtreme-mouz-2026-02-22",
-    "tag_id": [
-      "102366:Dota 2",
+      "65:league of legends",
       "100639:Games",
       "1:Sports",
       "64:Esports"
     ],
-    "title": "Dota 2: Xtreme Gaming vs MOUZ (BO3) - DreamLeague Stage 2"
+    "title": "LoL: New Meta vs Inferno Drive Tokyo (BO1) - LJL Stage 1 Group B"
   },
   {
-    "endDateHST": "February 22, 2026 09:30 AM HST",
-    "id": "221904",
-    "market_entires": [
+    "endDateHST": "February 23, 2026 06:30 AM HST",
+    "id": "224451",
+    "market_entries": [
       {
-        "question": "Dota 2: Tundra Esports vs PARIVISION (BO3) - DreamLeague Stage 2",
+        "question": "Dota 2: MOUZ vs BetBoom Team (BO3) - DreamLeague Stage 2",
         "sides": [
           {
-            "best_ask": "0.53",
-            "outcome": "Tundra Esports"
+            "best_ask": "0.59",
+            "outcome": "MOUZ"
           },
           {
-            "best_ask": "0.48",
-            "outcome": "PARIVISION"
+            "best_ask": "0.42",
+            "outcome": "BetBoom Team"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "dota2-tundra-pari-2026-02-22",
+    "slug": "dota2-mouz-bb4-2026-02-23",
     "tag_id": [
-      "64:Esports",
-      "102366:Dota 2",
       "100639:Games",
-      "1:Sports"
+      "1:Sports",
+      "64:Esports",
+      "102366:Dota 2"
     ],
-    "title": "Dota 2: Tundra Esports vs PARIVISION (BO3) - DreamLeague Stage 2"
+    "title": "Dota 2: MOUZ vs BetBoom Team (BO3) - DreamLeague Stage 2"
   },
   {
-    "endDateHST": "February 22, 2026 09:00 AM HST",
-    "id": "222875",
-    "market_entires": [
+    "endDateHST": "February 23, 2026 09:00 AM HST",
+    "id": "225150",
+    "market_entries": [
       {
-        "question": "Dota 2: Team Stels vs Winter Bear (BO3) - EPL Championship Playoffs",
+        "question": "Dota 2: Team Stels vs Yellow Submarine (BO3) - EPL Championship Playoffs",
         "sides": [
           {
-            "best_ask": "0.39",
+            "best_ask": "0.95",
             "outcome": "Team Stels"
           },
           {
-            "best_ask": "0.81",
-            "outcome": "Winter Bear"
+            "best_ask": "0.92",
+            "outcome": "Yellow Submarine"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "dota2-stels-wb-2026-02-22",
+    "slug": "dota2-stels-yes-2026-02-23",
     "tag_id": [
       "64:Esports",
       "102366:Dota 2",
       "100639:Games",
       "1:Sports"
     ],
-    "title": "Dota 2: Team Stels vs Winter Bear (BO3) - EPL Championship Playoffs"
+    "title": "Dota 2: Team Stels vs Yellow Submarine (BO3) - EPL Championship Playoffs"
   }
 ]

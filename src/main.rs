@@ -68,7 +68,19 @@ async fn main() {
             let all_events = fetch_all_tags(&client, &tag_ids, &now_str).await;
             println!("Got {} total events across all tags", all_events.len());
 
-            // ── 2. Filter to game events in the time window (pure, no I/O) ───────
+            // ── 2. Deduplicate by event id ────────────────────────────────────────
+            // Same event can appear multiple times if it matches several tag_ids
+            let mut seen_ids = std::collections::HashSet::new();
+            let all_events: Vec<Value> = all_events
+                .into_iter()
+                .filter(|e| {
+                    let id = e.get("id").and_then(Value::as_str).unwrap_or("");
+                    seen_ids.insert(id.to_string())
+                })
+                .collect();
+            println!("{} unique events after dedup", all_events.len());
+
+            // ── 3. Filter to game events in the time window (pure, no I/O) ───────
             let game_events = filter_game_events(&all_events, &now, &window_end);
             println!("{} game events in window", game_events.len());
 
@@ -172,6 +184,7 @@ async fn main() {
                 if market_entries.is_empty() { continue; }
 
                 println!("EVENT: {} | EndDate: {}", title, end_date_hst);
+                println!("  Tags: {}", event_tags.join(", "));
                 for entry in &market_entries {
                     let question = entry.get("question").and_then(|q| q.as_str()).unwrap_or("");
                     let sides = entry.get("sides").and_then(|s| s.as_array()).unwrap();
