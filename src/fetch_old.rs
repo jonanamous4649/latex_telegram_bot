@@ -1,47 +1,25 @@
 // fetch.rs — parallel fetching helpers for Polymarket bot
 
 use reqwest::Client;
-use serde::Deserialize;
 use serde_json::Value;
 use chrono::{DateTime, Utc, Duration};
 use futures::future::join_all;
 use chrono_tz::Pacific::Honolulu;
-use std::fs;
-
-// ================================================================================
-// CONFIG
-// Loaded once at startup from config.json, passed around by reference.
-// ================================================================================
-#[derive(Deserialize)]
-pub struct Config {
-    pub bot_token: String,
-    pub chat_id: String,
-    pub hours_window: i64,
-    pub pool_max_idle_per_host: usize,
-    pub request_timeout_secs: u64,
-    pub tag_ids: Vec<String>,
-}
-
-impl Config {
-    pub fn load(path: &str) -> Config {
-        let contents = fs::read_to_string(path)
-            .expect("Failed to read config.json");
-        serde_json::from_str(&contents)
-            .expect("Failed to parse config.json")
-    }
-}
 
 // ================================================================================
 // SHARED CLIENT
 // Build once, reuse everywhere. Handles connection pooling automatically.
 // ================================================================================
-pub fn build_client(config: &Config) -> Client {
+pub fn build_client() -> Client {
     Client::builder()
-        .timeout(std::time::Duration::from_secs(config.request_timeout_secs))
-        .pool_max_idle_per_host(config.pool_max_idle_per_host)
+        .timeout(std::time::Duration::from_secs(10))
+        .pool_max_idle_per_host(20) // keep connections alive across requests
         .build()
         .expect("Failed to build HTTP client")
 }
+// If API hangs (disconnects) we get a 'connection timed out' error instead of freezing forever
+// .pool_max_idle_per_host keeps the connection open and idle for reuse
+// instead of opening and closing for every request
 
 // ================================================================================
 // TIME HELPERS
@@ -51,6 +29,10 @@ pub fn utc_to_hst(utc_str: &str) -> String {
     let hst = utc.with_timezone(&Honolulu);
     hst.format("%B %d, %Y %I:%M %p HST").to_string()
 }
+// data from Gamma-API .json gives UTC time
+// after parsing, we get a DateTime<Utc> type, which we pass to utc_to_hst
+// and use '.with_timezone(&Honolulu) to switch time to HST
+// then it is reformated to show month, day, year, and time
 
 pub fn now_and_window(hours: i64) -> (DateTime<Utc>, DateTime<Utc>, String) {
     let now = Utc::now();
@@ -58,6 +40,8 @@ pub fn now_and_window(hours: i64) -> (DateTime<Utc>, DateTime<Utc>, String) {
     let now_str = now.format("%Y-%m-%dT%H:%M:%SZ").to_string();
     (now, later, now_str)
 }
+// returns a tuple with time fetch was requested, how long we want to wait for
+// games to end, and a 'now_str' for the gamma-api URL filter params
 
 // ================================================================================
 // PARALLEL TAG FETCHING
@@ -73,7 +57,7 @@ pub async fn fetch_all_tags(client: &Client, tag_ids: &[&str], now_str: &str) ->
                 now_str, tag_id
             );
             let client = client.clone();
-            async move {
+            async move {    // move means the async block takes ownership of 'url' and 'client' (cloned version)
                 match client.get(&url).send().await {
                     Ok(resp) => match resp.json::<Vec<Value>>().await {
                         Ok(events) => events,
@@ -91,10 +75,18 @@ pub async fn fetch_all_tags(client: &Client, tag_ids: &[&str], now_str: &str) ->
         })
         .collect();
 
-    // All tag requests fire at the same time
+    // All tag requests fire at the same time with 'join_all()'
     let results = join_all(futures).await;
-    results.into_iter().flatten().collect()
+    results.into_iter().flatten().collect() // a single list instead of a list for each tag
 }
+// returns a list of all the events found from tag_ids. Runs in parallel by creating
+// async blocks for each tag_id. 'futures' is a vec of 'recipes' that take tag_ids
+// that are iterated over to create individual copies of 'client' to send HTTP requests to gamma-API.
+// 'client.get(&url).send().await {} is when the request actually gets sent
+// but its wrapped in 'match' to handle error scenarios.
+// .collect() at the end just packages up 'events' nicely for each async block executed.
+// join_all() runs all the async blocks in 'futures' in parallel and stores the event list
+// in 'results'
 
 // ================================================================================
 // PARALLEL ORDERBOOK FETCHING
@@ -147,6 +139,7 @@ pub async fn fetch_orderbooks(
     // All orderbook requests fire at the same time
     join_all(futures).await.into_iter().flatten().collect()
 }
+// returns a list of OrderbookEntry structs
 
 // ================================================================================
 // EVENT FILTERING

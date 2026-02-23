@@ -4,29 +4,44 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-# HTTP client for Telegram API
-reqwest = { version = "0.11", features = ["blocking", "json"]}
+# Async HTTP client — handles connection pooling, JSON deserialization,
+# and response body reading. Replaces ureq entirely.
+# "json" feature enables resp.json::<T>() for automatic deserialization.
+# "blocking" removed — we are fully async now via tokio.
+reqwest = { version = "0.11", features = ["json"] }
 
-# to fetch url
-ureq = "2.9"
+# Serialization/deserialization framework.
+# "derive" feature enables #[derive(Deserialize)] on the Config struct,
+# which lets serde automatically map config.json fields onto it.
+serde = { version = "1", features = ["derive"] }
 
-# nice JSON formatting
+# JSON parsing and formatting.
+# Used for serde_json::from_str() on nested JSON strings (clobTokenIds, outcomes),
+# serde_json::json!() macro for building output JSON, and Config deserialization.
 serde_json = "1.0"
 
-# for UTC -> HST
+# Date and time handling for UTC timestamps and time window filtering.
 chrono = "0.4"
+
+# Timezone conversion — used to convert UTC event end times to HST for display.
 chrono-tz = "0.8"
 
-# for websocket-monitoring
-tungstenite = { version = "0.20", features = ["native-tls"]}
+# WebSocket client for future real-time price monitoring via
+# Polymarket's CLOB WebSocket feed (wss://ws-subscriptions-clob.polymarket.com).
+# Not yet wired up — placeholder for next phase.
+tungstenite = { version = "0.20", features = ["native-tls"] }
 
-# tokio for parallel processesing
+# Async runtime — drives all async functions and manages the task scheduler
+# that allows parallel HTTP requests to run concurrently on one thread.
+# "full" feature enables timers (tokio::time::sleep) and the #[tokio::main] macro.
 tokio = { version = "1", features = ["full"] }
 
-# join_all() function (core of parallelism) takes
-# a Vec of async futures and runs them concurrently
+# Provides join_all() which takes a Vec of futures and runs them all
+# concurrently, returning when the last one finishes.
+# Core of the parallel tag and orderbook fetching.
 futures = "0.3"
 
-# for tg_send() helper - properly encodes the messeage text
-# before putting it in URL
+# Properly percent-encodes strings for use in URLs.
+# Used in tg_send() to safely encode message text — handles all special
+# characters like &, ?, #, % that would break the Telegram API URL if unescaped.
 urlencoding = "2"
