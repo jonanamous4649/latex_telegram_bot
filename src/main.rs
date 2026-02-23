@@ -72,34 +72,58 @@ async fn main() {
             let game_events = filter_game_events(&all_events, &now, &window_end);
             println!("{} game events in window", game_events.len());
 
-            // ── 3. Build the full list of orderbook fetches needed ───────────────
+            // ── 3. Build jobs grouped by event ───────────────────────────────────
+            // Each EventJob holds one event and ALL its moneyline markets,
+            // so events with multiple markets (e.g. soccer: Home/Away/Draw)
+            // stay correctly paired with their event data.
             struct MarketJob {
                 question: String,
                 tokens: Vec<String>,
                 outcomes: Vec<String>,
             }
 
-            let mut jobs: Vec<MarketJob> = Vec::new();
-            for event in game_events.iter() {
-                for (question, tokens, outcomes) in extract_moneyline_markets(event) {
-                    jobs.push(MarketJob { question, tokens, outcomes });
-                }
+            struct EventJob<'a> {
+                event: &'a Value,
+                markets: Vec<MarketJob>,
             }
 
-            // Fire all orderbook requests concurrently across ALL events/markets
-            println!("Fetching orderbooks for {} markets in parallel...", jobs.len());
+            let event_jobs: Vec<EventJob> = game_events
+                .iter()
+                .map(|event| {
+                    let markets = extract_moneyline_markets(event)
+                        .into_iter()
+                        .map(|(question, tokens, outcomes)| MarketJob { question, tokens, outcomes })
+                        .collect();
+                    EventJob { event, markets }
+                })
+                .collect();
+
+            // ── 4. Fetch all orderbooks in parallel ──────────────────────────────
+            // Flatten all markets across all events into one parallel wave,
+            // tracking which event each market belongs to via event_idx.
+            struct FlatJob<'a> {
+                event_idx: usize,
+                market: &'a MarketJob,
+            }
+
+            let flat_jobs: Vec<FlatJob> = event_jobs
+                .iter()
+                .enumerate()
+                .flat_map(|(i, ej)| {
+                    ej.markets.iter().map(move |m| FlatJob { event_idx: i, market: m })
+                })
+                .collect();
+
+            println!("Fetching orderbooks for {} markets in parallel...", flat_jobs.len());
             let all_orderbooks = futures::future::join_all(
-                jobs.iter().map(|job| fetch_orderbooks(&client, &job.tokens, &job.outcomes))
+                flat_jobs.iter().map(|fj| fetch_orderbooks(&client, &fj.market.tokens, &fj.market.outcomes))
             ).await;
 
-            // ── 4. Assemble JSON output ──────────────────────────────────────────
+            // ── 5. Assemble JSON output — group markets back under their event ────
             let mut filtered: Vec<Value> = Vec::new();
 
-            for (event, (job, sides)) in game_events
-                .iter()
-                .zip(jobs.iter().zip(all_orderbooks.iter()))
-            {
-                if sides.len() < 2 { continue; }
+            for (event_idx, event_job) in event_jobs.iter().enumerate() {
+                let event = event_job.event;
 
                 let id = event.get("id").and_then(Value::as_str).unwrap_or("");
                 let title = event.get("title").and_then(Value::as_str).unwrap_or("");
@@ -119,16 +143,45 @@ async fn main() {
                         .collect())
                     .unwrap_or_default();
 
-                let side_entries: Vec<Value> = sides
-                    .iter()
-                    .map(|s| serde_json::json!({
-                        "outcome": s.outcome,
-                        "best_ask": s.best_ask,
-                    }))
-                    .collect();
+                // Collect all valid markets for this event
+                let mut market_entries: Vec<Value> = Vec::new();
+
+                for (fj, sides) in flat_jobs.iter().zip(all_orderbooks.iter()) {
+                    // Skip markets that belong to a different event
+                    if fj.event_idx != event_idx { continue; }
+
+                    // Skip markets where price fetch failed
+                    if sides.len() < 2 { continue; }
+
+                    let side_entries: Vec<Value> = sides
+                        .iter()
+                        .map(|s| serde_json::json!({
+                            "outcome": s.outcome,
+                            "best_ask": s.best_ask,
+                        }))
+                        .collect();
+
+                    market_entries.push(serde_json::json!({
+                        "question": fj.market.question,
+                        "sides": side_entries,
+                        "sports_market_type": "moneyline",
+                    }));
+                }
+
+                // Skip the event entirely if no markets had valid pricing
+                if market_entries.is_empty() { continue; }
 
                 println!("EVENT: {} | EndDate: {}", title, end_date_hst);
-                for s in sides { println!("  {} | Ask: {}", s.outcome, s.best_ask); }
+                for entry in &market_entries {
+                    let question = entry.get("question").and_then(|q| q.as_str()).unwrap_or("");
+                    let sides = entry.get("sides").and_then(|s| s.as_array()).unwrap();
+                    println!("  Market: {}", question);
+                    for side in sides {
+                        let outcome = side.get("outcome").and_then(|o| o.as_str()).unwrap_or("");
+                        let ask = side.get("best_ask").and_then(|a| a.as_str()).unwrap_or("");
+                        println!("    {} | Ask: {}", outcome, ask);
+                    }
+                }
 
                 filtered.push(serde_json::json!({
                     "id": id,
@@ -136,15 +189,11 @@ async fn main() {
                     "title": title,
                     "slug": slug,
                     "endDateHST": end_date_hst,
-                    "market_entries": [{
-                        "question": job.question,
-                        "sides": side_entries,
-                        "sports_market_type": "moneyline",
-                    }]
+                    "market_entries": market_entries
                 }));
             }
 
-            // ── 5. Save ──────────────────────────────────────────────────────────
+            // ── 6. Save ──────────────────────────────────────────────────────────
             let result = serde_json::to_string_pretty(&filtered).unwrap();
             fs::create_dir_all("events").unwrap();
             write("events/polymarket_btc_events.json", result).unwrap();
