@@ -1,24 +1,108 @@
 [
   {
-    "endDateHST": "February 23, 2026 08:00 AM HST",
-    "id": "189759",
+    "endDateHST": "February 23, 2026 02:00 PM HST",
+    "id": "212915",
     "market_entries": [
       {
-        "question": "Will Brøndby IF win on 2026-02-23?",
+        "question": "Spurs vs. Pistons",
         "sides": [
           {
-            "best_ask": "0.5",
+            "best_ask": "0.48",
+            "outcome": "Spurs"
+          },
+          {
+            "best_ask": "0.53",
+            "outcome": "Pistons"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "nba-sas-det-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Spurs vs. Pistons"
+  },
+  {
+    "endDateHST": "February 23, 2026 03:00 PM HST",
+    "id": "212919",
+    "market_entries": [
+      {
+        "question": "Kings vs. Grizzlies",
+        "sides": [
+          {
+            "best_ask": "0.43",
+            "outcome": "Kings"
+          },
+          {
+            "best_ask": "0.58",
+            "outcome": "Grizzlies"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "nba-sac-mem-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Kings vs. Grizzlies"
+  },
+  {
+    "endDateHST": "February 23, 2026 04:30 PM HST",
+    "id": "212923",
+    "market_entries": [
+      {
+        "question": "Jazz vs. Rockets",
+        "sides": [
+          {
+            "best_ask": "0.14",
+            "outcome": "Jazz"
+          },
+          {
+            "best_ask": "0.87",
+            "outcome": "Rockets"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "nba-uta-hou-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "745:NBA",
+      "100639:Games",
+      "28:Basketball"
+    ],
+    "title": "Jazz vs. Rockets"
+  },
+  {
+    "endDateHST": "February 23, 2026 10:00 AM HST",
+    "id": "203949",
+    "market_entries": [
+      {
+        "question": "Will Manchester United FC win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.48",
             "outcome": "Yes"
           },
           {
-            "best_ask": "0.51",
+            "best_ask": "0.54",
             "outcome": "No"
           }
         ],
         "sports_market_type": "moneyline"
       },
       {
-        "question": "Will Brøndby IF vs. Sønderjyske Fodbold end in a draw?",
+        "question": "Will Everton FC win on 2026-02-23?",
         "sides": [
           {
             "best_ask": "0.28",
@@ -32,195 +116,475 @@
         "sports_market_type": "moneyline"
       },
       {
-        "question": "Will Sønderjyske Fodbold win on 2026-02-23?",
+        "question": "Will Everton FC vs. Manchester United FC end in a draw?",
         "sides": [
           {
-            "best_ask": "0.24",
+            "best_ask": "0.27",
             "outcome": "Yes"
           },
           {
-            "best_ask": "0.77",
+            "best_ask": "0.74",
             "outcome": "No"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "den-bro-sjs-2026-02-23",
+    "slug": "epl-eve-mun-2026-02-23",
+    "tag_id": [
+      "100639:Games",
+      "100350:Soccer",
+      "82:Premier League",
+      "306:EPL",
+      "1:Sports"
+    ],
+    "title": "Everton FC vs. Manchester United FC"
+  },
+  {
+    "endDateHST": "February 23, 2026 10:00 AM HST",
+    "id": "203949",
+    "market_entries": [
+      {
+        "question": "Will Manchester United FC win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.48",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.54",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will Everton FC win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.28",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.73",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will Everton FC vs. Manchester United FC end in a draw?",
+        "sides": [
+          {
+            "best_ask": "0.27",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.74",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "epl-eve-mun-2026-02-23",
+    "tag_id": [
+      "100639:Games",
+      "100350:Soccer",
+      "82:Premier League",
+      "306:EPL",
+      "1:Sports"
+    ],
+    "title": "Everton FC vs. Manchester United FC"
+  },
+  {
+    "endDateHST": "February 23, 2026 10:00 AM HST",
+    "id": "203949",
+    "market_entries": [
+      {
+        "question": "Will Manchester United FC win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.48",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.54",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will Everton FC win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.28",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.73",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will Everton FC vs. Manchester United FC end in a draw?",
+        "sides": [
+          {
+            "best_ask": "0.27",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.74",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "epl-eve-mun-2026-02-23",
+    "tag_id": [
+      "100639:Games",
+      "100350:Soccer",
+      "82:Premier League",
+      "306:EPL",
+      "1:Sports"
+    ],
+    "title": "Everton FC vs. Manchester United FC"
+  },
+  {
+    "endDateHST": "February 23, 2026 11:00 AM HST",
+    "id": "190630",
+    "market_entries": [
+      {
+        "question": "Will Cúcuta Deportivo FC win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.43",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.58",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will Cúcuta Deportivo FC vs. CD Tolima end in a draw?",
+        "sides": [
+          {
+            "best_ask": "0.3",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.71",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will CD Tolima win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.28",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.74",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "col1-cdf-cdt-2026-02-23",
     "tag_id": [
       "1:Sports",
-      "102652:Denmark Superliga",
       "100639:Games",
       "100350:Soccer"
     ],
-    "title": "Brøndby IF vs. Sønderjyske Fodbold"
+    "title": "Cúcuta Deportivo FC vs. CD Tolima"
   },
   {
-    "endDateHST": "February 23, 2026 05:00 AM HST",
-    "id": "206667",
+    "endDateHST": "February 23, 2026 11:00 AM HST",
+    "id": "190630",
     "market_entries": [
       {
-        "question": "LoL: DN SOOPers Challengers vs Nongshim Esports Academy (BO5) - LCK Challengers League Kickoff Playoffs",
+        "question": "Will Cúcuta Deportivo FC win on 2026-02-23?",
         "sides": [
           {
-            "best_ask": "0.41",
-            "outcome": "DN SOOPers Challengers"
+            "best_ask": "0.43",
+            "outcome": "Yes"
           },
           {
-            "best_ask": "0.6",
-            "outcome": "Nongshim Esports Academy"
+            "best_ask": "0.58",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will Cúcuta Deportivo FC vs. CD Tolima end in a draw?",
+        "sides": [
+          {
+            "best_ask": "0.3",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.71",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will CD Tolima win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.28",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.74",
+            "outcome": "No"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "lol-dnsc-nsea-2026-02-23",
+    "slug": "col1-cdf-cdt-2026-02-23",
     "tag_id": [
-      "100639:Games",
       "1:Sports",
-      "64:Esports",
-      "65:league of legends"
+      "100639:Games",
+      "100350:Soccer"
     ],
-    "title": "LoL: DN SOOPers Challengers vs Nongshim Esports Academy (BO5) - LCK Challengers League Kickoff Playoffs"
+    "title": "Cúcuta Deportivo FC vs. CD Tolima"
   },
   {
-    "endDateHST": "February 23, 2026 07:00 AM HST",
-    "id": "225156",
+    "endDateHST": "February 23, 2026 11:00 AM HST",
+    "id": "190630",
     "market_entries": [
       {
-        "question": "LoL: DetonatioN FocusMe Academy vs L Guide Gaming (BO1) - LJL Stage 1 Group B",
+        "question": "Will Cúcuta Deportivo FC win on 2026-02-23?",
         "sides": [
           {
-            "best_ask": "0.96",
-            "outcome": "DetonatioN FocusMe Academy"
+            "best_ask": "0.43",
+            "outcome": "Yes"
           },
           {
-            "best_ask": "0.95",
-            "outcome": "L Guide Gaming"
+            "best_ask": "0.58",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will Cúcuta Deportivo FC vs. CD Tolima end in a draw?",
+        "sides": [
+          {
+            "best_ask": "0.3",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.71",
+            "outcome": "No"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      },
+      {
+        "question": "Will CD Tolima win on 2026-02-23?",
+        "sides": [
+          {
+            "best_ask": "0.28",
+            "outcome": "Yes"
+          },
+          {
+            "best_ask": "0.74",
+            "outcome": "No"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "lol-dfma-lguide-2026-02-23",
+    "slug": "col1-cdf-cdt-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "100639:Games",
+      "100350:Soccer"
+    ],
+    "title": "Cúcuta Deportivo FC vs. CD Tolima"
+  },
+  {
+    "endDateHST": "February 23, 2026 03:30 PM HST",
+    "id": "213222",
+    "market_entries": [
+      {
+        "question": "Valorant: KRÜ Spark vs Farenvehn (BO3) - VCL Latin America South Group Stage",
+        "sides": [
+          {
+            "best_ask": "0.18",
+            "outcome": "KRÜ Spark"
+          },
+          {
+            "best_ask": "0.85",
+            "outcome": "Farenvehn"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "val-krspar-fvn-2026-02-23",
     "tag_id": [
       "64:Esports",
-      "65:league of legends",
+      "101672:Valorant",
       "100639:Games",
       "1:Sports"
     ],
-    "title": "LoL: DetonatioN FocusMe Academy vs L Guide Gaming (BO1) - LJL Stage 1 Group B"
+    "title": "Valorant: KRÜ Spark vs Farenvehn (BO3) - VCL Latin America South Group Stage"
   },
   {
-    "endDateHST": "February 23, 2026 08:00 AM HST",
-    "id": "225157",
+    "endDateHST": "February 23, 2026 05:00 PM HST",
+    "id": "219035",
     "market_entries": [
       {
-        "question": "LoL: NOVEX vs Clocks (BO1) - LJL Stage 1 Group A",
+        "question": "Valorant: sleepers vs M80 (BO3) - VCL North America Playoffs",
+        "sides": [
+          {
+            "best_ask": "0.46",
+            "outcome": "sleepers"
+          },
+          {
+            "best_ask": "0.55",
+            "outcome": "M80"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "val-slp-m80-2026-02-23",
+    "tag_id": [
+      "101672:Valorant",
+      "100639:Games",
+      "64:Esports",
+      "1:Sports"
+    ],
+    "title": "Valorant: sleepers vs M80 (BO3) - VCL North America Playoffs"
+  },
+  {
+    "endDateHST": "February 23, 2026 04:00 PM HST",
+    "id": "220040",
+    "market_entries": [
+      {
+        "question": "Valorant: INTZ vs MIBR Academy (BO3) - VCL Brazil: Group A",
+        "sides": [
+          {
+            "best_ask": "0.69",
+            "outcome": "INTZ"
+          },
+          {
+            "best_ask": "0.35",
+            "outcome": "MIBR Academy"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "val-intz-mibra-2026-02-23",
+    "tag_id": [
+      "1:Sports",
+      "101672:Valorant",
+      "64:Esports",
+      "100639:Games"
+    ],
+    "title": "Valorant: INTZ vs MIBR Academy (BO3) - VCL Brazil: Group A"
+  },
+  {
+    "endDateHST": "February 23, 2026 04:00 PM HST",
+    "id": "220047",
+    "market_entries": [
+      {
+        "question": "Valorant: Elevate vs HOLY (BO3) - VCL Brazil: Group A",
         "sides": [
           {
             "best_ask": "0.7",
-            "outcome": "NOVEX"
+            "outcome": "Elevate"
           },
           {
-            "best_ask": "0.32",
-            "outcome": "Clocks"
+            "best_ask": "0.31",
+            "outcome": "HOLY"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "lol-novex-clo-2026-02-23",
+    "slug": "val-ele-holy-2026-02-23",
     "tag_id": [
       "64:Esports",
-      "65:league of legends",
+      "101672:Valorant",
       "100639:Games",
       "1:Sports"
     ],
-    "title": "LoL: NOVEX vs Clocks (BO1) - LJL Stage 1 Group A"
+    "title": "Valorant: Elevate vs HOLY (BO3) - VCL Brazil: Group A"
   },
   {
-    "endDateHST": "February 23, 2026 09:00 AM HST",
-    "id": "225158",
+    "endDateHST": "February 23, 2026 12:30 PM HST",
+    "id": "224453",
     "market_entries": [
       {
-        "question": "LoL: New Meta vs Inferno Drive Tokyo (BO1) - LJL Stage 1 Group B",
+        "question": "Dota 2: Aurora vs Tundra Esports (BO3) - DreamLeague Stage 2",
         "sides": [
           {
-            "best_ask": "0.23",
-            "outcome": "New Meta"
+            "best_ask": "0.8",
+            "outcome": "Aurora"
           },
           {
-            "best_ask": "0.78",
-            "outcome": "Inferno Drive Tokyo"
+            "best_ask": "0.28",
+            "outcome": "Tundra Esports"
           }
         ],
         "sports_market_type": "moneyline"
       }
     ],
-    "slug": "lol-newmet-infern-2026-02-23",
-    "tag_id": [
-      "65:league of legends",
-      "100639:Games",
-      "1:Sports",
-      "64:Esports"
-    ],
-    "title": "LoL: New Meta vs Inferno Drive Tokyo (BO1) - LJL Stage 1 Group B"
-  },
-  {
-    "endDateHST": "February 23, 2026 06:30 AM HST",
-    "id": "224451",
-    "market_entries": [
-      {
-        "question": "Dota 2: MOUZ vs BetBoom Team (BO3) - DreamLeague Stage 2",
-        "sides": [
-          {
-            "best_ask": "0.59",
-            "outcome": "MOUZ"
-          },
-          {
-            "best_ask": "0.42",
-            "outcome": "BetBoom Team"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "dota2-mouz-bb4-2026-02-23",
-    "tag_id": [
-      "100639:Games",
-      "1:Sports",
-      "64:Esports",
-      "102366:Dota 2"
-    ],
-    "title": "Dota 2: MOUZ vs BetBoom Team (BO3) - DreamLeague Stage 2"
-  },
-  {
-    "endDateHST": "February 23, 2026 09:00 AM HST",
-    "id": "225150",
-    "market_entries": [
-      {
-        "question": "Dota 2: Team Stels vs Yellow Submarine (BO3) - EPL Championship Playoffs",
-        "sides": [
-          {
-            "best_ask": "0.95",
-            "outcome": "Team Stels"
-          },
-          {
-            "best_ask": "0.92",
-            "outcome": "Yellow Submarine"
-          }
-        ],
-        "sports_market_type": "moneyline"
-      }
-    ],
-    "slug": "dota2-stels-yes-2026-02-23",
+    "slug": "dota2-aur1-tundra-2026-02-23",
     "tag_id": [
       "64:Esports",
       "102366:Dota 2",
       "100639:Games",
       "1:Sports"
     ],
-    "title": "Dota 2: Team Stels vs Yellow Submarine (BO3) - EPL Championship Playoffs"
+    "title": "Dota 2: Aurora vs Tundra Esports (BO3) - DreamLeague Stage 2"
+  },
+  {
+    "endDateHST": "February 23, 2026 04:15 PM HST",
+    "id": "224454",
+    "market_entries": [
+      {
+        "question": "Dota 2: Team Liquid vs Team Falcons (BO3) - DreamLeague Stage 2",
+        "sides": [
+          {
+            "best_ask": "0.65",
+            "outcome": "Team Liquid"
+          },
+          {
+            "best_ask": "0.36",
+            "outcome": "Team Falcons"
+          }
+        ],
+        "sports_market_type": "moneyline"
+      }
+    ],
+    "slug": "dota2-liquid-flc-2026-02-23",
+    "tag_id": [
+      "64:Esports",
+      "102366:Dota 2",
+      "100639:Games",
+      "1:Sports"
+    ],
+    "title": "Dota 2: Team Liquid vs Team Falcons (BO3) - DreamLeague Stage 2"
   }
 ]
