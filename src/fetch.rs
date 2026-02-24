@@ -231,3 +231,25 @@ pub async fn tg_send(client: &Client, bot_token: &str, chat_id: &str, text: &str
         eprintln!("Telegram send failed: {}", e);
     }
 }
+
+// ================================================================================
+// PRINT EVENT
+// Shared display function — call after assembling market_entries so both
+// main.rs and test binaries produce identical terminal output.
+// ================================================================================
+pub fn print_event(title: &str, end_date_hst: &str, event_tags: &[String], market_entries: &[serde_json::Value]) {
+    println!("EVENT: {} | EndDate: {}", title, end_date_hst);
+    println!("==================================================================================");
+    println!("  Tags: {}", event_tags.join(", "));
+    for entry in market_entries {
+        let question = entry.get("question").and_then(|q| q.as_str()).unwrap_or("");
+        let sides    = entry.get("sides").and_then(|s| s.as_array()).unwrap();
+        println!("  Market: {}", question);
+        for side in sides {
+            let outcome = side.get("outcome").and_then(|o| o.as_str()).unwrap_or("");
+            let ask     = side.get("best_ask").and_then(|a| a.as_str()).unwrap_or("");
+            println!("    {} | Ask: {}", outcome, ask);
+        }
+    }
+    println!();
+}

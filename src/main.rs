@@ -9,7 +9,7 @@ mod fetch;
 use fetch::{
     build_client, fetch_all_tags, fetch_orderbooks,
     filter_game_events, extract_moneyline_markets,
-    now_and_window, utc_to_hst, tg_send,
+    now_and_window, utc_to_hst, tg_send, print_event,
     Config,
 };
 use serde_json::Value;
@@ -222,19 +222,7 @@ async fn run_fetch(client: &reqwest::Client, config: &Config, tag_ids: &[&str]) 
 
         if market_entries.is_empty() { continue; }
 
-        println!("EVENT: {} | EndDate: {}", title, end_date_hst);
-        println!("==================================================================================");
-        println!("  Tags: {}", event_tags.join(", "));
-        for entry in &market_entries {
-            let question = entry.get("question").and_then(|q| q.as_str()).unwrap_or("");
-            let sides    = entry.get("sides").and_then(|s| s.as_array()).unwrap();
-            println!("  Market: {}", question);
-            for side in sides {
-                let outcome = side.get("outcome").and_then(|o| o.as_str()).unwrap_or("");
-                let ask     = side.get("best_ask").and_then(|a| a.as_str()).unwrap_or("");
-                println!("    {} | Ask: {}", outcome, ask);
-            }
-        println!();
+        print_event(title, &end_date_hst, &event_tags, &market_entries);
 
         filtered.push(serde_json::json!({
             "id": id,
@@ -244,7 +232,6 @@ async fn run_fetch(client: &reqwest::Client, config: &Config, tag_ids: &[&str]) 
             "endDateHST": end_date_hst,
             "market_entries": market_entries
         }));
-        }
     }
 
     // ── 7. Save ───────────────────────────────────────────────────────────────
