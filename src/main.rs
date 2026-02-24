@@ -1,253 +1,243 @@
-use reqwest::blocking::Client;
-use ureq;
-use std::fs::{self, write};
+// main.rs — refactored to use parallel fetching from fetch.rs
+//
+// Add to Cargo.toml:
+// tokio = { version = "1", features = ["full"] }
+// serde = { version = "1", features = ["derive"] }
+
+mod fetch;
+
+use fetch::{
+    build_client, fetch_all_tags, fetch_orderbooks,
+    filter_game_events, extract_moneyline_markets,
+    now_and_window, utc_to_hst, tg_send, print_event,
+    Config,
+};
 use serde_json::Value;
-use chrono::{DateTime, Utc, Duration};
-use chrono_tz::Pacific::Honolulu;
-use std::io::Read;
+use std::fs::{self, write};
+use tokio::sync::mpsc;
 
-fn utc_to_hst(utc_str: &str) -> String {
-    let utc: DateTime<Utc> = utc_str.parse().unwrap();
-    let hst = utc.with_timezone(&Honolulu);
-    hst.format("%B %d, %Y %I:%M %p HST").to_string()
-}
+#[tokio::main]
+async fn main() {
+    // ── Load config ──────────────────────────────────────────────────────────────
+    let config = Config::load("config.json");
 
-fn main() {
-    // ================================================================================
-    // RECIEVE COMMAND FROM TG
-    // ================================================================================
-    let bot_token = "8205762687:AAEMPfLccVrzukLQApkyrxopDBaU4qKw71g";
-    let chat_id = "8363439123";
+    // Build ONE client — shared across all requests for the lifetime of the bot
+    let client = build_client(&config);
     let mut offset: i64 = 0;
 
-    loop {
-        let url = format!(
-            "https://api.telegram.org/bot{}/getUpdates?offset={}&timeout=30",
-            bot_token, offset
-        );
+    // Convert Vec<String> from config into Vec<&str> for fetch_all_tags
+    let tag_ids: Vec<&str> = config.tag_ids.iter().map(|s| s.as_str()).collect();
 
-        let response = ureq::get(&url).call().unwrap();
-        let mut body = String::new();
-        response.into_reader().read_to_string(&mut body).unwrap();
-
-        let json: Value = serde_json::from_str(&body).unwrap();
-        let updates = json.get("result").and_then(Value::as_array).unwrap();
-
-        for update in updates {
-            let update_id = update.get("update_id").and_then(Value::as_i64).unwrap();
-            offset = update_id + 1;
-
-            let message_text = update
-                .get("message")
-                .and_then(|m| m.get("text"))
-                .and_then(Value::as_str)
-                .unwrap_or("");
-
-            if message_text == "fetch games" {
-                println!("Received 'fetch games' command, running...\n");
-
-                let mut message = "Received 'fetch games' command, running...";
-                let url = format!(
-                    "https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}",
-                    bot_token,
-                    chat_id,
-                    message
-                );
-
-                Client::new().get(&url).send().unwrap();
-
-                // ================================================================================
-                // SEARCH PARAMS
-                // ================================================================================
-                let tag_ids = vec![
-                    "100149", "101178", "100351", "450", "745", "100350",
-                    "82", "101674", "102779", "100639", "864", "101232", "102123",
-                    "64", "65", "100780", "101672", "102366", "102750", "102753",
-                    "102754", "102755", "102756", "102758", "102759"
-                ];
-                let now_str = Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string();
-                let now = Utc::now();                                   // current time
-                let hours_later = now + Duration::hours(8);       // time filter
-                // println!("{}", now);
-                // println!("{}\n", hours_later);
-                
-                let mut filtered = Vec::new();
-                for tag_id in tag_ids {
-                    let url = format!(
-                        "https://gamma-api.polymarket.com/events?limit=50&end_date_min={}&closed=false&tag_id={}",
-                        now_str, tag_id
-                    );
-                    // let url = format!(
-                    //     "https://gamma-api.polymarket.com/events?limit=50&closed=false&tag_id=100780",
-                    // );
-                    let response = ureq::get(&url).call().unwrap();
-                    let mut body = String::new();
-                    response.into_reader().read_to_string(&mut body).unwrap();
-
-                    // ============================================================
-                    // EVENT FINDER
-                    // ============================================================
-                    let events: Vec<Value> = serde_json::from_str(&body).unwrap();         // all data drom gamma API
-
-                    for event in events {
-                        
-                        // extracting unique id for game
-                        let id = event.get("id").unwrap().as_str().unwrap();
-
-                        // title of the game
-                        let title = event.get("title").unwrap().as_str().unwrap();
-
-                        // slug of the game
-                        let slug = event.get("slug").unwrap().as_str().unwrap();
-                        
-                        // extract endDate from event info
-                        let end_date_str = match event.get("endDate")
-                            .and_then(Value::as_str) {
-                                Some(v) => v,
-                                None => continue,
-                            };
-                        let end_date: DateTime<Utc> = DateTime::parse_from_rfc3339(end_date_str)
-                            .unwrap()
-                            .with_timezone(&Utc);
-                        if !(end_date > now && end_date <= hours_later) {
-                            continue;
-                        }
-                        let end_date_hst = utc_to_hst(end_date_str);
-                        
-                        // filtering for binary 'vs' markets
-                        let event_tags: Vec<String> = event.get("tags")
-                            .and_then(|t| t.as_array())
-                            .map(|arr| arr.iter()
-                                .filter_map(|t| {
-                                    let id = t.get("id").and_then(Value::as_str)?;
-                                    let label = t.get("label").and_then(Value::as_str)?;
-                                    Some(format!("{}:{}", id, label))
-                                })
-                                .collect())
-                            .unwrap_or_default();
-
-                        let is_game = event_tags.iter().any(|t| t.starts_with("100639:"));
-
-                        if !is_game {
-                            continue;
-                        }
-                        
-                        // getting clob_token_ids
-                        let markets = event.get("markets").and_then(Value::as_array);
-                        let mut market_entries: Vec<Value> = Vec::new();
-                        // let mut binary_tokens: Vec<Value> = Vec::new();
-                        // let mut outcomes: Vec<Value> = Vec::new();
-                        if let Some(markets) = markets {
-                            println!("EVENT: {} | Total markets: {}", title, markets.len());
-                            println!("EndDate: {}", end_date_hst);
-
-                            for market in markets {
-                                let sports_market_type = market.get("sportsMarketType").and_then(Value::as_str).unwrap_or("N/A");
-                                if sports_market_type != "moneyline" {
-                                    continue;
-                                }
-
-                                let question = market.get("question").and_then(Value::as_str).unwrap_or("N/A");
-                                let clob_token_ids = market.get("clobTokenIds").and_then(Value::as_str).unwrap_or("N/A");
-                                let binary_tokens: Vec<Value> = serde_json::from_str(clob_token_ids).unwrap_or_default();
-                                let outcomes: Vec<Value> = serde_json::from_str(
-                                    market.get("outcomes").and_then(Value::as_str).unwrap_or("[]")).unwrap_or_default();
-                                
-                                println!("  Question: {}", question);
-                                println!("  sportsMarketType: {}", sports_market_type);
-                                // println!("  clobTokenIds: {}", clob_token_ids);
-
-                                // ================================================================================
-                                // ORDERBOOK PRICES
-                                // ================================================================================
-                                let mut side_entries: Vec<Value> = Vec::new();
-                                for (i, token) in binary_tokens.iter().enumerate() {
-                                    let token_str = match token.as_str() {
-                                        Some(v) => v,
-                                        None => continue,
-                                    };
-
-                                    let clob_url = format!("https://clob.polymarket.com/book?token_id={}", token_str);
-                                    let clob_response = match ureq::get(&clob_url).call() {
-                                        Ok(r) => r,
-                                        Err(_) => continue,
-                                    };
-                                    let mut clob_body = String::new();
-                                    clob_response.into_reader().read_to_string(&mut clob_body).unwrap();
-
-                                    let book: Value = serde_json::from_str(&clob_body).unwrap();
-                                    let best_ask = book.get("asks")
-                                        .and_then(Value::as_array)
-                                        .and_then(|b| b.last())
-                                        .and_then(|b| b.get("price"))
-                                        .and_then(Value::as_str)
-                                        .unwrap_or("N/A");
-
-                                    if best_ask == "N/A" {
-                                        side_entries.clear();
-                                        break;
-                                    }
-
-                                    let outcome = outcomes.get(i).and_then(Value::as_str).unwrap_or("Unkown");
-                                    println!(" {} | Ask: {}", outcome, best_ask);
-
-                                    side_entries.push(serde_json::json!({
-                                        "outcome": outcome,
-                                        // "token_id": token_str,
-                                        "best_ask": best_ask,
-                                    }))
-                                }
-                                market_entries.push(serde_json::json!({
-                                    "question": question,
-                                    "sides": side_entries,
-                                    "sports_market_type": sports_market_type,
-                                }))
-                            }   
-                        }
-                        
-                        // ================================================================================
-                        // JSON FILE FORMAT
-                        // ================================================================================
-                        let simplified = serde_json::json!({
-                            "id": id,
-                            "tag_id": event_tags,
-                            "title": title,
-                            "slug": slug,
-                            "endDateHST": end_date_hst,
-                            "market_entires": market_entries 
-                        });
-
-                        println!("TAGS: {:?}\n", event_tags);
-
-                        filtered.push(simplified);
-                        // }
+    // ── Stdin command channel ────────────────────────────────────────────────────
+    // Spawns a background task that reads lines from stdin and forwards any
+    // recognised commands into the main loop via a channel — non-blocking.
+    let (stdin_tx, mut stdin_rx) = mpsc::channel::<String>(8);
+    tokio::task::spawn_blocking(move || {
+        println!("Terminal ready — type 'fetch games' and press Enter");
+        use std::io::BufRead;
+        let stdin = std::io::stdin();
+        let mut lines = stdin.lock().lines();
+        loop {
+            match lines.next() {
+                Some(Ok(line)) => {
+                    let cmd = line.trim().to_string();
+                    if !cmd.is_empty() {
+                        let _ = stdin_tx.blocking_send(cmd);
                     }
                 }
-                
-                // ================================================================================
-                // SAVING JSON FILE
-                // ================================================================================
-                let result = serde_json::to_string_pretty(&filtered).unwrap();
-                fs::create_dir_all("events").unwrap();
-                write("events/polymarket_btc_events.json", result).unwrap();
-                
-                message = ".json file updated!";
-                let url = format!(
-                    "https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}",
-                    bot_token,
-                    chat_id,
-                    message.replace(" ", "%20")
-                );
+                _ => break, // stdin closed / EOF
+            }
+        }
+    });
 
-                ureq::get(&url).call().unwrap();
+    loop {
+        // ── Build the Telegram future (not awaited yet) ──────────────────────────
+        // timeout=5 keeps the poll short so select! can react to terminal input
+        // within a few seconds even if Telegram has nothing to say.
+        let tg_url = format!(
+            "https://api.telegram.org/bot{}/getUpdates?offset={}&timeout=5",
+            config.bot_token, offset
+        );
+        let tg_future = client.get(&tg_url).send();
 
+        // ── Race Telegram vs terminal input ──────────────────────────────────────
+        // select! waits for whichever future completes first.
+        // If a terminal command arrives while Telegram is still waiting, it wins
+        // immediately — no need to wait for the poll to finish.
+        tokio::select! {
+            // ── Telegram arm ────────────────────────────────────────────────────
+            result = tg_future => {
+                let body = match result {
+                    Ok(r) => r.text().await.unwrap_or_default(),
+                    Err(_) => { tokio::time::sleep(std::time::Duration::from_secs(2)).await; continue; }
+                };
+
+                let json: Value = serde_json::from_str(&body).unwrap_or_default();
+                let updates = match json.get("result").and_then(Value::as_array) {
+                    Some(u) => u.clone(),
+                    None => { continue; }
+                };
+
+                for update in &updates {
+                    let update_id = update.get("update_id").and_then(Value::as_i64).unwrap_or(0);
+                    offset = update_id + 1;
+
+                    let text = update
+                        .get("message")
+                        .and_then(|m| m.get("text"))
+                        .and_then(Value::as_str)
+                        .unwrap_or("");
+
+                    if text != "fetch games" { continue; }
+
+                    println!("Received 'fetch games' command (Telegram)");
+                    tg_send(&client, &config.bot_token, &config.chat_id, "Received 'fetch games' command, running...").await;
+                    run_fetch(&client, &config, &tag_ids).await;
+                }
             }
 
-                    
+            // ── Terminal arm ─────────────────────────────────────────────────────
+            // stdin_rx.recv() is async — it suspends until a command arrives,
+            // which lets select! race it properly against the Telegram future.
+            Some(cmd) = stdin_rx.recv() => {
+                if cmd == "fetch games" {
+                    println!("Received 'fetch games' command (terminal)");
+                    // tg_send(&client, &config.bot_token, &config.chat_id, "Received 'fetch games' command, running...").await;
+                    run_fetch(&client, &config, &tag_ids).await;
+                } else {
+                    println!("Unknown command: '{}' — try 'fetch games'", cmd);
+                }
+            }
         }
+    }
+}
 
-        std::thread::sleep(std::time::Duration::from_secs(2));
-        
+// ================================================================================
+// RUN FETCH
+// Extracted from the main loop so both Telegram and terminal commands
+// can trigger it without duplicating the logic.
+// ================================================================================
+async fn run_fetch(client: &reqwest::Client, config: &Config, tag_ids: &[&str]) {
+    // ── Time window ──────────────────────────────────────────────────────────
+    let (now, window_end, now_str) = now_and_window(config.hours_window);
+
+    // ── 1. Fetch all tags IN PARALLEL ────────────────────────────────────────
+    println!("Fetching {} tags in parallel...", tag_ids.len());
+    let all_events = fetch_all_tags(client, tag_ids, &now_str).await;
+    println!("Got {} total events across all tags", all_events.len());
+
+    // ── 2. Deduplicate by event id ────────────────────────────────────────────
+    let mut seen_ids = std::collections::HashSet::new();
+    let all_events: Vec<Value> = all_events
+        .into_iter()
+        .filter(|e| {
+            let id = e.get("id").and_then(Value::as_str).unwrap_or("");
+            seen_ids.insert(id.to_string())
+        })
+        .collect();
+    println!("{} unique events after dedup", all_events.len());
+
+    // ── 3. Filter to game events in the time window ───────────────────────────
+    let game_events = filter_game_events(&all_events, &now, &window_end);
+    println!("{} game events in window", game_events.len());
+
+    // ── 4. Build jobs grouped by event ───────────────────────────────────────
+    struct MarketJob {
+        question: String,
+        tokens: Vec<String>,
+        outcomes: Vec<String>,
+    }
+    struct EventJob<'a> {
+        event: &'a Value,
+        markets: Vec<MarketJob>,
     }
 
+    let event_jobs: Vec<EventJob> = game_events
+        .iter()
+        .map(|event| {
+            let markets = extract_moneyline_markets(event)
+                .into_iter()
+                .map(|(question, tokens, outcomes)| MarketJob { question, tokens, outcomes })
+                .collect();
+            EventJob { event, markets }
+        })
+        .collect();
+
+    // ── 5. Flatten and fetch all orderbooks in one parallel wave ──────────────
+    struct FlatJob<'a> {
+        event_idx: usize,
+        market: &'a MarketJob,
+    }
+
+    let flat_jobs: Vec<FlatJob> = event_jobs
+        .iter()
+        .enumerate()
+        .flat_map(|(i, ej)| ej.markets.iter().map(move |m| FlatJob { event_idx: i, market: m }))
+        .collect();
+
+    println!("Fetching orderbooks for {} markets in parallel...\n", flat_jobs.len());
+    let all_orderbooks = futures::future::join_all(
+        flat_jobs.iter().map(|fj| fetch_orderbooks(client, &fj.market.tokens, &fj.market.outcomes))
+    ).await;
+
+    // ── 6. Assemble JSON output ───────────────────────────────────────────────
+    let mut filtered: Vec<Value> = Vec::new();
+
+    for (event_idx, event_job) in event_jobs.iter().enumerate() {
+        let event = event_job.event;
+
+        let id           = event.get("id").and_then(Value::as_str).unwrap_or("");
+        let title        = event.get("title").and_then(Value::as_str).unwrap_or("");
+        let slug         = event.get("slug").and_then(Value::as_str).unwrap_or("");
+        let end_date_str = event.get("endDate").and_then(Value::as_str).unwrap_or("");
+        let end_date_hst = utc_to_hst(end_date_str);
+
+        let event_tags: Vec<String> = event
+            .get("tags").and_then(Value::as_array)
+            .map(|arr| arr.iter()
+                .filter_map(|t| {
+                    let id    = t.get("id").and_then(Value::as_str)?;
+                    let label = t.get("label").and_then(Value::as_str)?;
+                    Some(format!("{}:{}", id, label))
+                })
+                .collect())
+            .unwrap_or_default();
+
+        let mut market_entries: Vec<Value> = Vec::new();
+
+        for (fj, sides) in flat_jobs.iter().zip(all_orderbooks.iter()) {
+            if fj.event_idx != event_idx { continue; }
+            if sides.len() < 2 { continue; }
+
+            let side_entries: Vec<Value> = sides.iter()
+                .map(|s| serde_json::json!({ "outcome": s.outcome, "best_ask": s.best_ask }))
+                .collect();
+
+            market_entries.push(serde_json::json!({
+                "question": fj.market.question,
+                "sides": side_entries,
+                "sports_market_type": "moneyline",
+            }));
+        }
+
+        if market_entries.is_empty() { continue; }
+
+        print_event(title, &end_date_hst, &event_tags, &market_entries);
+
+        filtered.push(serde_json::json!({
+            "id": id,
+            "tag_id": event_tags,
+            "title": title,
+            "slug": slug,
+            "endDateHST": end_date_hst,
+            "market_entries": market_entries
+        }));
+    }
+
+    // ── 7. Save ───────────────────────────────────────────────────────────────
+    let result = serde_json::to_string_pretty(&filtered).unwrap();
+    fs::create_dir_all("events").unwrap();
+    write("events/polymarket_btc_events.json", result).unwrap();
+
+    // tg_send(client, &config.bot_token, &config.chat_id, ".json file updated!").await;
 }
